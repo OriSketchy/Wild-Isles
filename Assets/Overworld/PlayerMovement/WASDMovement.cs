@@ -9,8 +9,10 @@ public class WASDMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //vector is automatically set to 0, 0, 0 so player doesnt move without input
         Vector3 direction = Vector3.zero;
 
+        //Add up player input
         if (Input.GetKey("d"))
         {
             direction += Vector3.right;
@@ -28,6 +30,7 @@ public class WASDMovement : MonoBehaviour
             direction += Vector3.back;
         }
         
+        //Execute player input
         transform.position += direction.normalized * speed * Time.fixedDeltaTime; 
     }
 }
