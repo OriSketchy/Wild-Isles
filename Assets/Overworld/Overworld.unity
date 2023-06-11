@@ -168,8 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e43c56a8379894d9058d3e98647bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 71
-  character: {fileID: 57527477}
+  character: {fileID: 0}
+  speed: 0
+  horizontalRange: 6
+  verticalRange: 6
 --- !u!1 &413650576
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e43c56a8379894d9058d3e98647bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  character: {fileID: 0}
+  character: {fileID: 413650576}
+  speed: 0
+  horizontalRange: 6
+  verticalRange: 6
 --- !u!114 &413650578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5511442928898183692, guid: 2da0ec9db8584e349a5777b8c98a161e, type: 3}
       propertyPath: offset.y
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5511442928898183692, guid: 2da0ec9db8584e349a5777b8c98a161e, type: 3}
       propertyPath: offset.z
