@@ -9,7 +9,7 @@ public class FollowPlayer : MonoBehaviour
     public float smoothTime = 4f;
     private Vector3 velocity;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Vector3 distance = target.position + offset - transform.position;
         Vector3 move = distance * smoothTime * Time.deltaTime;
