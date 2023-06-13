@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 778435710}
   - component: {fileID: 778435709}
   - component: {fileID: 778435713}
+  - component: {fileID: 778435714}
   m_Layer: 0
   m_Name: NPC
   m_TagString: CanSpeak
@@ -644,6 +645,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &778435714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778435708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a9d59042b5547438431dc4ac20247c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &848943393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5511442928898183693, guid: 2da0ec9db8584e349a5777b8c98a161e, type: 3}
@@ -947,12 +960,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1409394009}
-  lines:
-  - This is the first line
-  - This is the second line
-  - This is the third, and final, line.
-  textSpeed: 0.05
+  lines: []
+  textSpeed: 0
   mouseCooldown: 0
+  CanSpeak:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1428416251
 MonoBehaviour:
   m_ObjectHideFlags: 0
