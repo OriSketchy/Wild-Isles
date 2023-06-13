@@ -10,7 +10,7 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
     //good luck
     private void Start()
     {
-        AddPhysicsRaycast();
+        AddPhysicsRaycaster();
     }
 
     private void AddPhysicsRaycaster()
@@ -32,11 +32,11 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
         Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
     }
 
-    void FixedUpdate()
-    {
-        if (PhysicsRaycaster.CompareTag("CanSpeak") != null)
-        {
-            Debug.Log(hit.transform.gameObject.name);
-        }
-    }
+    // void FixedUpdate()
+    // {
+    //     if (PhysicsRaycaster.CompareTag("CanSpeak") != null)
+    //     {
+    //         Debug.Log(hit.transform.gameObject.name);
+    //     }
+    // }
 }
