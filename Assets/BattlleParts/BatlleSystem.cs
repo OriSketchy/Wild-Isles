@@ -13,7 +13,7 @@ public class BatlleSystem : MonoBehaviour
     public GameObject enemyPrefab;
     // SETUP VARIABLES TO GET INVENTORY DATA
     
-    // Brackey's tutorial - this might not stick
+    // change how this works pretty please
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
@@ -83,7 +83,7 @@ public class BatlleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         // damages the enemy and checks if dead
-        bool isDead = enemyUnit.TakeDamage(playerUnit.baseDamage, damageType);
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damageType);
         // updates enemy hp and throws dialogue
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "You strike the enemy!";
@@ -134,7 +134,7 @@ public class BatlleSystem : MonoBehaviour
         // same pattern as player turn, just automatically attacks
         dialogueText.text = enemyUnit.unitName + " attacks you.";
         yield return new WaitForSeconds(1f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.baseDamage, 4);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damageBase, 4);
         playerHUD.SetHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
         if(isDead)

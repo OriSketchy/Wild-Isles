@@ -7,13 +7,13 @@ public class Unit : MonoBehaviour
     public string unitName;
     public int unitLevel;
 
-    public float baseDamage;
-
     public int maxHP;
     public int currentHP;
 
     // 1 = stab, 2 = grab, 3 = thwab, 0 = strong against all/Duffin
-    public int weakness;
+    public int damageType;
+    public int damageWeakness;
+    public float damageBase;
 
     // 0 = player, 1 = bag bunny, 2 = box frog, 3 = microplastic slime, 4 = dragon
     // is there a better way to do this? yeah
@@ -22,7 +22,8 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(float dmg, int dmgType)
     {
-        if (dmgType == weakness) dmg = Mathf.Ceil(dmg * 1.5f);
+        if (dmgType == damageWeakness) dmg = Mathf.Ceil(dmg * 1.5f);
+        if (Random.Range(0, 10) == 1) dmg = Mathf.Ceil(dmg * 1.5f);
 
         currentHP -= (int)dmg;
         if (currentHP <= 0)
