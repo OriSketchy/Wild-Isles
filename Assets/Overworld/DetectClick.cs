@@ -11,6 +11,7 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         AddPhysicsRaycaster();
+        
     }
 
     private void AddPhysicsRaycaster()
@@ -31,6 +32,10 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
     {
         Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
     }
+
+   
+    
+
 
     // void FixedUpdate()
     // {
