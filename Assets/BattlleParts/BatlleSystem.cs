@@ -26,8 +26,9 @@ public class BatlleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    public Transform UIParent;
+
     public BattleState state;
-    int damageType;
     void Start()
     {
         state = BattleState.START;
@@ -80,10 +81,10 @@ public class BatlleSystem : MonoBehaviour
     {
         dialogueText.text = "Choose your action!";
     }
-    IEnumerator PlayerAttack()
+    IEnumerator PlayerAttack(int damType)
     {
         // damages the enemy and checks if dead
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damageType);
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType);
         // updates enemy hp and throws dialogue
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "You strike the enemy!";
@@ -111,15 +112,6 @@ public class BatlleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
-    }
-    // make an attack button for each damage type
-    // or write an alternative that wont result in 6 attack buttons
-    public void OnAttackButton()
-    {
-        // attacks by default. will be a choice
-        if (state != BattleState.PLAYERTURN)
-            return;
-        StartCoroutine(PlayerAttack());
     }
     public void OnItemButton()
     {
@@ -157,5 +149,24 @@ public class BatlleSystem : MonoBehaviour
         // this straight up kills the bird idk if we can bring him back 
         // remember to make a game over scene please
         else if(state == BattleState.LOST) { dialogueText.text = "You are defeated!"; }
+    }
+
+    // UI CONTROLS VV
+    void ResetButtons()
+    {
+        foreach( Transform child in UIParent ) { child.gameObject.SetActive(false); }
+        UIParent.GetChild(0).gameObject.SetActive(true);
+        UIParent.GetChild(1).gameObject.SetActive(true);
+    } // use this for "back" buttons
+    public void OnAttackButton(int damType)
+    {
+        // attacks by default. will be a choice
+        if (state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerAttack(damType));
+    }
+    public void onScrapButon(int dmgType)
+    {
+
     }
 }
