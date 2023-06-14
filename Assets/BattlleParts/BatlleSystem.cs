@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // List of battle states
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEE }
 
 public class BatlleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     // SETUP VARIABLES TO GET INVENTORY DATA
-    
+
     // change how this works pretty please
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -81,10 +81,10 @@ public class BatlleSystem : MonoBehaviour
     {
         dialogueText.text = "Choose your action!";
     }
-    IEnumerator PlayerAttack(int damType)
+    IEnumerator PlayerAttack(int damType, int damMod = 0)
     {
         // damages the enemy and checks if dead
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType);
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType, damMod);
         // updates enemy hp and throws dialogue
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "You strike the enemy!";
@@ -103,22 +103,15 @@ public class BatlleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         } 
     }
-    IEnumerator PlayerHeal()
+    IEnumerator PlayerHeal(int amount)
     {
         // placeholder amount - change to inventory item
-        playerUnit.HealUnt(5);
+        playerUnit.HealUnt(amount);
         playerHUD.SetHP(playerUnit.currentHP);
         dialogueText.text = "You restore a little health. Just hold out a little longer";
         yield return new WaitForSeconds(2f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
-    }
-    public void OnItemButton()
-    {
-        // heals by default. tweak to be more specific
-        if (state != BattleState.PLAYERTURN)
-            return;
-        StartCoroutine(PlayerHeal());
     }
     // BATTLE ENEMY TURN STATE
     IEnumerator EnemyTurn()
@@ -152,21 +145,38 @@ public class BatlleSystem : MonoBehaviour
     }
 
     // UI CONTROLS VV
-    void ResetButtons()
+    public void ResetButtons()
     {
         foreach( Transform child in UIParent ) { child.gameObject.SetActive(false); }
         UIParent.GetChild(0).gameObject.SetActive(true);
         UIParent.GetChild(1).gameObject.SetActive(true);
+        UIParent.GetChild(2).gameObject.SetActive(true);
     } // use this for "back" buttons
+    public void OnAttackParent() 
+    {
+        UIParent.GetChild(1).gameObject.SetActive(false);
+        UIParent.GetChild(3).gameObject.SetActive(true);
+    }
+    // Figure out how to let buttons give 2 inputs at the same time
+    // For now the SP attacks will share the same damage bonus
     public void OnAttackButton(int damType)
     {
-        // attacks by default. will be a choice
+        // different buttons input different attack types
+        // SP buttons will do damage based on current selected weapon (set defaults for demo)
         if (state != BattleState.PLAYERTURN)
             return;
-        StartCoroutine(PlayerAttack(damType));
-    }
-    public void onScrapButon(int dmgType)
-    {
+        ResetButtons();
 
+        if (damType == 0) { StartCoroutine(PlayerAttack(damType)); }
+        else if(damType > 0) { StartCoroutine(PlayerAttack(damType, 15)); }
     }
+    public void OnItemParent() { }
+    public void OnItemButton(int amount)
+    {
+        // heals by default. tweak to be more specific
+        if (state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerHeal(amount));
+    }
+    public void OnFleeButton() { state = BattleState.FLEE; }
 }
