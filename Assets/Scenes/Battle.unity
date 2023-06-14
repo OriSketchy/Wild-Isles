@@ -160,7 +160,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1222532862}
   playerHUD: {fileID: 942559519}
   enemyHUD: {fileID: 811231512}
-  UIParent: {fileID: 0}
+  UIParent: {fileID: 2121187926}
   state: 0
 --- !u!212 &45994332
 SpriteRenderer:
@@ -1324,7 +1324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &548125816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1798,7 +1798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001965142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1909,8 +1909,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 45994331}
         m_TargetAssemblyTypeName: BatlleSystem, Assembly-CSharp
-        m_MethodName: OnAttackButton
-        m_Mode: 3
+        m_MethodName: OnFleeButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3256,8 +3256,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 45994331}
         m_TargetAssemblyTypeName: BatlleSystem, Assembly-CSharp
-        m_MethodName: OnAttackButton
-        m_Mode: 3
+        m_MethodName: OnAttackParent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
