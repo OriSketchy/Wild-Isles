@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 778435713}
   - component: {fileID: 778435714}
   - component: {fileID: 778435715}
+  - component: {fileID: 778435716}
   m_Layer: 0
   m_Name: NPC
   m_TagString: CanSpeak
@@ -661,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a9d59042b5547438431dc4ac20247c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue: {fileID: 1428416250}
 --- !u!114 &778435715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +677,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 0
+--- !u!114 &778435716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778435708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f93be1c50fbea246a971c83b80d5094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &848943393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5511442928898183693, guid: 2da0ec9db8584e349a5777b8c98a161e, type: 3}
@@ -978,12 +992,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1409394009}
-  lines: []
-  textSpeed: 0
-  mouseCooldown: 0
-  CanSpeak:
-    serializedVersion: 2
-    m_Bits: 0
+  lines:
+  - This is line 1
+  - This is line 2
+  - This is line 3
+  - This is line 4
+  textSpeed: 0.0344
 --- !u!114 &1428416251
 MonoBehaviour:
   m_ObjectHideFlags: 0

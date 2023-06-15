@@ -6,42 +6,32 @@ using UnityEngine.EventSystems;
 
 public class DetectClick : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField]
+    Dialogue dialogue;
 
-    //good luck
     private void Start()
     {
         AddPhysicsRaycaster();
-        
     }
 
+    //Rasycaster checks what gameobject is clicked
     private void AddPhysicsRaycaster()
     {
         PhysicsRaycaster physicsRaycaster = FindObjectOfType<PhysicsRaycaster>();
         if (physicsRaycaster == null)
         {
-            Camera.main.gameObject.AddComponent<PhysicsRaycaster>();
-        }
-        
-        if (physicsRaycaster.CompareTag("CanSpeak"))
-        {
-            Debug.Log("Youre did it");
+            //add to cam and add to physicsRaycaster variable
+            physicsRaycaster = Camera.main.gameObject.AddComponent<PhysicsRaycaster>();
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
+        //Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
+        if (eventData.pointerCurrentRaycast.gameObject.CompareTag("CanSpeak"))
+        {
+            Debug.Log("Script works");
+            dialogue.StartDialogue();
+        }
     }
-
-   
-    
-
-
-    // void FixedUpdate()
-    // {
-    //     if (PhysicsRaycaster.CompareTag("CanSpeak") != null)
-    //     {
-    //         Debug.Log(hit.transform.gameObject.name);
-    //     }
-    // }
 }

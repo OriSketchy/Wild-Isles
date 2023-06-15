@@ -4,34 +4,23 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-
 public class Dialogue : MonoBehaviour
 {
      public TextMeshProUGUI textComponent;
      public string[] lines;
-     [Range(0f, 1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
-     [Range(0f, 2f)] public float mouseCooldown;
+     [Range(0f, 0.1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
+     //[Range(0f, 2f)] public float mouseCooldown;
 
      private int index;
-
-    [SerializeField]
-    LayerMask CanSpeak = 0;
 
     void Start()
     {
          textComponent.text = string.Empty;
     }
-   
+
     void Awake()
     {
-        if(gameObject.CompareTag("CanSpeak"))
-        {
-            StartDialogue();
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -50,9 +39,10 @@ public class Dialogue : MonoBehaviour
          }
      }
 
-     void StartDialogue()
+     public void StartDialogue()
      {
-         index = 0;
+        gameObject.SetActive(true);
+        index = 0;
          StartCoroutine(TypeLine());
      }
 
