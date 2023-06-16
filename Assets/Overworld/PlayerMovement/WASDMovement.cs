@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class WASDMovement : MonoBehaviour
 {
+    Animator animator;
     [SerializeField]
     [Range(0, 10)] private float speed;
+
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
 
     void FixedUpdate()
     {
@@ -32,5 +38,16 @@ public class WASDMovement : MonoBehaviour
         
         //Execute player input
         transform.position += direction.normalized * speed * Time.fixedDeltaTime; 
+        
+        
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            animator.SetBool("Walk", true);
+        }
+
+        if(!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d"))
+        {
+            animator.SetBool("Walk", false);
+        }
     }
 }
