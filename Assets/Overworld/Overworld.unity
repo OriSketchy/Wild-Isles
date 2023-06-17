@@ -1186,10 +1186,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duffin
       objectReference: {fileID: 0}
-    - target: {fileID: 4950316361864303285, guid: e62d9eea3d836014ebae697ede454936, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
