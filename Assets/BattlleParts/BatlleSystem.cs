@@ -9,16 +9,17 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEE }
 
 public class BatlleSystem : MonoBehaviour
 {
-    public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    //public GameObject playerUnit;
+    //public GameObject enemyPrefab;
     // SETUP VARIABLES TO GET INVENTORY DATA
 
     // change how this works pretty please
-    public Transform playerBattleStation;
-    public Transform enemyBattleStation;
+    //public Transform playerBattleStation;
+    //public Transform enemyBattleStation;
+    public LoadBadger theBadger;
 
-    Unit playerUnit;
-    Unit enemyUnit;
+    public Unit playerUnit;
+    public Unit enemyUnit;
 
     // figure out changing this to a textmeshpro please
     public Text dialogueText;
@@ -41,11 +42,11 @@ public class BatlleSystem : MonoBehaviour
     IEnumerator SetupBattle()
     {
         // instantiates are temporary. getcomponent is forever.
-        GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGo.GetComponent<Unit>();
+        //GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
+        //playerUnit = playerGo.GetComponent<Unit>();
 
-        GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyGo.GetComponent<Unit>();
+        //GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
+        //enemyUnit = enemyGo.GetComponent<Unit>();
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -148,18 +149,28 @@ public class BatlleSystem : MonoBehaviour
             playerUnit.currentSP += enemyUnit.currentSP;
             if (playerUnit.currentSP > playerUnit.maxSP)
                 playerUnit.maxSP = playerUnit.currentSP;
+
+            Destroy(enemyUnit.gameObject);
+
+            StartCoroutine(theBadger.BattleExit());
         }
         // this straight up kills the bird idk if we can bring him back 
         // remember to make a game over scene please
         else if(state == BattleState.LOST) 
         {
             dialogueText.text = "You are defeated!";
+
+            Destroy(playerUnit.gameObject);
+
+            StartCoroutine(theBadger.BattleExit());
         }
         // skip XP gain, reset HP and keep SP loss to soft punish fleeing
         else if(state == BattleState.FLEE) 
         {
             dialogueText.text = "You flee the battle";
-            enemyUnit.currentHP = enemyUnit.maxHP; 
+            enemyUnit.currentHP = enemyUnit.maxHP;
+            StartCoroutine(theBadger.BattleExit());
+            //enemyUnit.GetComponent<WASDMovement>().enabled = true;
         }
     }
 

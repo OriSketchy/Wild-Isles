@@ -43,7 +43,7 @@ public class Unit : MonoBehaviour
 
         // deals the damage
         currentHP -= (int)dmg;
-        // prevents dropping to 0 (death works differently in external script)
+        // prevents dropping to 0 (death works in external script)
         if (currentHP <= 0)
             return true;
         else

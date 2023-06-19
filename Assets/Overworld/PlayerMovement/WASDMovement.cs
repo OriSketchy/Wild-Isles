@@ -1,12 +1,16 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WASDMovement : MonoBehaviour
 {
     Animator animator;
     [SerializeField]
-    [Range(0, 10)] private float speed;
+    [Range(0, 10)] public float speed;
+
+    public LoadBadger theBadger;
 
     private void Start()
     {
@@ -58,5 +62,23 @@ public class WASDMovement : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        // check if player is actually colliding with enemy. Or if even is Duffin
+        if (!other.CompareTag("Enemy") || this.CompareTag("Enemy"))
+            return;
+
+        this.transform.position += Vector3.left * 5f;
+
+        // Get all enemy data, angle of player to enemy, and midpoint of the two. Coroutine will handle the rest
+        GameObject enemy = other.gameObject;
+        Transform playerAngle = this.transform.GetChild(1).gameObject.GetComponent<LookAtEnemy>().Stare(enemy);
+        Vector3 midpoint = (enemy.transform.position + this.transform.position) * 0.5f;
+
+        animator.SetBool("Walk", false);
+
+        StartCoroutine(theBadger.BattleEntry(enemy, midpoint, playerAngle));
     }
 }
