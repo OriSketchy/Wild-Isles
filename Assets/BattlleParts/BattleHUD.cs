@@ -14,10 +14,14 @@ public class BattleHUD : MonoBehaviour
     public void SetHUD(Unit unit)
     {
         nameText.text = unit.unitName;
-        levelText.text = "Lvl " + unit.unitLevel;
+        // BALANCE/ADJUST THIS
+        levelText.text = "Lvl " + (Mathf.Round((float)unit.unitXP / 100) * 100);
         hpSlider.maxValue = unit.maxHP;
         hpSlider.value = unit.currentHP;
     }
     // update HP
-    public void SetHP(int hp) { hpSlider.value = hp; }
+    public void SetHP(int hp) 
+    { 
+        hpSlider.value = hp;
+    }
 }

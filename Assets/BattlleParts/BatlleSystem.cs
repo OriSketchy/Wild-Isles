@@ -29,8 +29,10 @@ public class BatlleSystem : MonoBehaviour
     public Transform UIParent;
 
     public BattleState state;
+    private int turnCount;
     void Start()
     {
+        turnCount = 0;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
@@ -48,8 +50,7 @@ public class BatlleSystem : MonoBehaviour
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
-        // unique opening text depending on enemy type
-        // This may change
+        // Dialogue text is placeholder
         switch (enemyUnit.unitID)
         {
             case 0:
@@ -70,6 +71,7 @@ public class BatlleSystem : MonoBehaviour
         }
         // delaying coroutine so player gets a chance to read. May make this wait skippable with input
         yield return new WaitForSeconds(2f);
+        ResetButtons();
 
         // moves to next scene
         state = BattleState.PLAYERTURN;
@@ -103,12 +105,11 @@ public class BatlleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         } 
     }
-    IEnumerator PlayerHeal(int amount)
+    IEnumerator PlayerHeal(int itemSlot)
     {
         // placeholder amount - change to inventory item
-        playerUnit.HealUnt(amount);
+        playerUnit.HealUnit(itemSlot);
         playerHUD.SetHP(playerUnit.currentHP);
-        dialogueText.text = "You restore a little health. Just hold out a little longer";
         yield return new WaitForSeconds(2f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -119,6 +120,7 @@ public class BatlleSystem : MonoBehaviour
         // same pattern as player turn, just automatically attacks
         dialogueText.text = enemyUnit.unitName + " attacks you.";
         yield return new WaitForSeconds(1f);
+        enemyUnit.currentSP -= 5;
         bool isDead = playerUnit.TakeDamage(enemyUnit.damageBase, 4);
         playerHUD.SetHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
@@ -133,31 +135,68 @@ public class BatlleSystem : MonoBehaviour
             PlayerTurn();
         }
     }
-
     // BATTLE WIN/LOSE STATE
     void EndBattle()
     {
         // add battle rewards and save data to the Loadbadger
-        if(state == BattleState.WON) { dialogueText.text = "You win the battle"; }
+        if(state == BattleState.WON) 
+        { 
+            dialogueText.text = "You win the battle";
+            // calculate XP gain
+            playerUnit.unitXP += 100 - (10 * turnCount);
+            // calculate SP gain
+            playerUnit.currentSP += enemyUnit.currentSP;
+            if (playerUnit.currentSP > playerUnit.maxSP)
+                playerUnit.maxSP = playerUnit.currentSP;
+        }
         // this straight up kills the bird idk if we can bring him back 
         // remember to make a game over scene please
-        else if(state == BattleState.LOST) { dialogueText.text = "You are defeated!"; }
+        else if(state == BattleState.LOST) 
+        {
+            dialogueText.text = "You are defeated!";
+        }
+        // skip XP gain, reset HP and keep SP loss to soft punish fleeing
+        else if(state == BattleState.FLEE) 
+        {
+            dialogueText.text = "You flee the battle";
+            enemyUnit.currentHP = enemyUnit.maxHP; 
+        }
     }
+
 
     // UI CONTROLS VV
     public void ResetButtons()
     {
-        foreach( Transform child in UIParent ) { child.gameObject.SetActive(false); }
-        UIParent.GetChild(0).gameObject.SetActive(true);
-        UIParent.GetChild(1).gameObject.SetActive(true);
-        UIParent.GetChild(2).gameObject.SetActive(true);
-    } // use this for "back" buttons
+        // use this for "back" buttons
+        foreach ( Transform child in UIParent ) { child.gameObject.SetActive(false); }
+        for(int i = 0; i < 3; i++) { UIParent.GetChild(i).gameObject.SetActive(true); }
+    } 
     public void OnAttackParent() 
     {
         UIParent.GetChild(1).gameObject.SetActive(false);
         UIParent.GetChild(3).gameObject.SetActive(true);
     }
-    // Figure out how to let buttons give 2 inputs at the same time
+    public void OnItemParent() 
+    {
+        UIParent.GetChild(1).gameObject.SetActive(false);
+        GameObject itemButtons = UIParent.GetChild(4).gameObject;
+        itemButtons.SetActive(true);
+
+        // check each item is present. Disable if not
+        // assigning data to each button will be done externally
+        // okay actualy do ALL of this externally just enable the chiildren upon item pickup good lord
+        for(int i = 0; i < 3; i++) 
+        {
+            if (playerUnit.itemConsumes[i] != null) 
+            { 
+                itemButtons.transform.GetChild(i+2).gameObject.SetActive(true); 
+            } // jesus christ there has to be a better way
+            else 
+            { 
+                itemButtons.transform.GetChild(i+2).gameObject.SetActive(false);
+            }
+        }
+    }
     // For now the SP attacks will share the same damage bonus
     public void OnAttackButton(int damType)
     {
@@ -170,18 +209,27 @@ public class BatlleSystem : MonoBehaviour
         if (damType <= 3) { StartCoroutine(PlayerAttack(damType)); }
         else if(damType > 3) 
         {
-            if(playerUnit.currentSP > 10) { dialogueText.text = "You don't have enough SP for that!"; }
+            // Dialogue text is placeholder
+            if(playerUnit.currentSP < 10) { dialogueText.text = "You don't have enough SP for that!"; }
             else if(playerUnit.items[damType - 4]) { StartCoroutine(PlayerAttack(damType, 15)); }
             else { dialogueText.text = "You don't have the right weapon for that!"; }
+
+            playerUnit.currentSP -= 10;
         }
     }
-    public void OnItemParent() { }
-    public void OnItemButton(int amount)
+    public void OnItemButton(int itemSlot)
     {
-        // heals by default. tweak to be more specific
         if (state != BattleState.PLAYERTURN)
             return;
-        StartCoroutine(PlayerHeal(amount));
+
+        // dialogue text is placeholder
+        dialogueText.text = $"You eat your {playerUnit.itemConsumes[itemSlot].name} and restore HP!";
+        StartCoroutine(PlayerHeal(itemSlot));
     }
-    public void OnFleeButton() { state = BattleState.FLEE; }
+    public void OnFleeButton() 
+    {
+        state = BattleState.FLEE;
+        // end battle event. Skip stat gains and reset enemy HP, keep lowered SP (soft punish for fleeing)
+        EndBattle();
+    }
 }

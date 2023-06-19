@@ -5,7 +5,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public string unitName;
-    public int unitLevel;
+    public int unitXP;
 
     public int maxHP;
     public int currentHP;
@@ -27,25 +27,33 @@ public class Unit : MonoBehaviour
     // Defining what items Duffin has (allows SP buttons to be pressed)
     // stab, grab, thwab
     public List<bool> items = new List<bool> { false, false, false };
+    public List<ItemConsume> itemConsumes = new List<ItemConsume> { null, null, null };
 
     public bool TakeDamage(float dmg, int dmgType, int damMod = 0)
     {
         dmg += damMod;
 
-        if (dmgType > 4) { if (dmgType == damageWeakness) dmg = Mathf.Ceil(dmg * 1.5f); }
-        if (dmgType <= 4) { if (dmgType == damageWeakness) dmg = Mathf.Ceil(dmg * 1.5f); }
+        // cleans scrap attack (all bonuses are done externally)
+        if (dmgType >= 4) { dmgType -= 3; }
+        // checks weakness with cleaned damage type
+        if (dmgType == damageWeakness) dmg = Mathf.Ceil(dmg * 1.5f);
 
+        // crit chance
         if (Random.Range(0, 10) == 1) dmg = Mathf.Ceil(dmg * 1.5f);
 
+        // deals the damage
         currentHP -= (int)dmg;
+        // prevents dropping to 0 (death works differently in external script)
         if (currentHP <= 0)
             return true;
         else
             return false;
     }
-    public void HealUnt(int amount)
+    public void HealUnit(int itemSlot)
     {
-        currentHP += amount;
+        ItemConsume currentItem = itemConsumes[itemSlot];
+
+        currentHP += currentItem.healAmount;
         if (currentHP >= 0) currentHP = maxHP;
     }
 }
