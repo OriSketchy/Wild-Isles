@@ -10,6 +10,9 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
 
+    public int maxSP;
+    public int currentSP;
+
     // 1 = stab, 2 = grab, 3 = thwab, 0 = strong against all/Duffin
     // 4 = SP stab, 5 = SP grab 6 = SP thwab
     public int damageType;
@@ -20,6 +23,10 @@ public class Unit : MonoBehaviour
     // is there a better way to do this? yeah
     // am i going to change this? not unless it becomes a liability
     public int unitID;
+
+    // Defining what items Duffin has (allows SP buttons to be pressed)
+    // stab, grab, thwab
+    public List<bool> items = new List<bool> { false, false, false };
 
     public bool TakeDamage(float dmg, int dmgType, int damMod = 0)
     {

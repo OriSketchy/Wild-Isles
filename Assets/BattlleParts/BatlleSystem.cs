@@ -167,8 +167,13 @@ public class BatlleSystem : MonoBehaviour
             return;
         ResetButtons();
 
-        if (damType == 0) { StartCoroutine(PlayerAttack(damType)); }
-        else if(damType > 0) { StartCoroutine(PlayerAttack(damType, 15)); }
+        if (damType <= 3) { StartCoroutine(PlayerAttack(damType)); }
+        else if(damType > 3) 
+        {
+            if(playerUnit.currentSP > 10) { dialogueText.text = "You don't have enough SP for that!"; }
+            else if(playerUnit.items[damType - 4]) { StartCoroutine(PlayerAttack(damType, 15)); }
+            else { dialogueText.text = "You don't have the right weapon for that!"; }
+        }
     }
     public void OnItemParent() { }
     public void OnItemButton(int amount)
