@@ -31,7 +31,7 @@ public class BatlleSystem : MonoBehaviour
 
     public BattleState state;
     private int turnCount;
-    void Start()
+    void OnEnable()
     {
         turnCount = 0;
         state = BattleState.START;
@@ -50,6 +50,7 @@ public class BatlleSystem : MonoBehaviour
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
+        ResetButtons();
 
         // Dialogue text is placeholder
         switch (enemyUnit.unitID)
@@ -72,7 +73,6 @@ public class BatlleSystem : MonoBehaviour
         }
         // delaying coroutine so player gets a chance to read. May make this wait skippable with input
         yield return new WaitForSeconds(2f);
-        ResetButtons();
 
         // moves to next scene
         state = BattleState.PLAYERTURN;
