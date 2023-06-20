@@ -67,7 +67,7 @@ public class WASDMovement : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         // Give enemies a unique movement script
-        if (this.CompareTag("Enemy")
+        if (this.CompareTag("Enemy"))
             return;
         if (other.CompareTag("Enemy"))
         {

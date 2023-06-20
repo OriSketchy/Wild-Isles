@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fffd96f899974114e8a9b9777acd053c
+guid: c3c0c3e9dd5c2b74da44383ca35258a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Half_0
+      name: IconGrab_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 441
-        width: 817
-        height: 529
+        x: 187
+        y: 771
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92359f959f52c954b81d475f2285c94a
-      internalID: -108226007
+      spriteID: 18e9d39bc604e4747aa51319373c04b8
+      internalID: -965602255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_1
+      name: IconGrab_2
       rect:
         serializedVersion: 2
-        x: 689
-        y: 459
-        width: 18
-        height: 20
+        x: 894
+        y: 787
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 650ae7a2c57f9db47a904a91960b37da
-      internalID: -940750480
+      spriteID: 4b07f21be01e594438ebd8a21ff23de0
+      internalID: 1871247708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_2
+      name: IconGrab_8
       rect:
         serializedVersion: 2
-        x: 692
-        y: 479
-        width: 5
-        height: 5
+        x: 896
+        y: 97
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb0c36dc1db7321479aa964075090189
-      internalID: -1557456325
+      spriteID: 8bd05714843998447a15bc95dbc30ad8
+      internalID: -767185866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_3
+      name: IconGrab_10
       rect:
         serializedVersion: 2
-        x: 752
-        y: 381
-        width: 31
-        height: 42
+        x: 165
+        y: 94
+        width: 620
+        height: 551
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ea46ed0812905a428cdcb6a6c5c8b09
-      internalID: -1432528822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inventory Half_4
-      rect:
-        serializedVersion: 2
-        x: 766
-        y: 421
-        width: 21
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8269a0d7f6d26ed4494697297135bac9
-      internalID: 1684894708
+      spriteID: b6d4ad70de18b2c4ca18815cbb35b0e5
+      internalID: 1121085061
       vertices: []
       indices: 
       edges: []
@@ -225,11 +204,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Inventory Half_0: -108226007
-      Inventory Half_1: -940750480
-      Inventory Half_2: -1557456325
-      Inventory Half_3: -1432528822
-      Inventory Half_4: 1684894708
+      IconGrab_0: -965602255
+      IconGrab_1: 87224630
+      IconGrab_10: 1121085061
+      IconGrab_11: 1591444228
+      IconGrab_12: 1918165092
+      IconGrab_13: 1785480045
+      IconGrab_14: 748546437
+      IconGrab_15: -934424062
+      IconGrab_16: -638644554
+      IconGrab_17: 1739324953
+      IconGrab_2: 1871247708
+      IconGrab_3: 1278026846
+      IconGrab_4: 1599866296
+      IconGrab_5: -1732779179
+      IconGrab_6: 1073080903
+      IconGrab_7: -2050525175
+      IconGrab_8: -767185866
+      IconGrab_9: -1299814544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

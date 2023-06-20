@@ -70,9 +70,12 @@ public class BatlleSystem : MonoBehaviour
             case 4:
                 dialogueText.text = "The dragon seems to be looking at you. It reeks of rotting plastic. It must be old.";
                 break;
+            case 100:
+                dialogueText.text = "You stand upon the grave of God and weep, for the infernal bear is here.";
+                break;
         }
         // delaying coroutine so player gets a chance to read. May make this wait skippable with input
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         // moves to next scene
         state = BattleState.PLAYERTURN;
@@ -179,9 +182,15 @@ public class BatlleSystem : MonoBehaviour
     public void ResetButtons()
     {
         // use this for "back" buttons
-        foreach ( Transform child in UIParent ) { child.gameObject.SetActive(false); }
-        for(int i = 0; i < 3; i++) { UIParent.GetChild(i).gameObject.SetActive(true); }
-    } 
+        StartCoroutine(ResetsButtons());
+    }
+
+    public IEnumerator ResetsButtons()
+    {
+        foreach (Transform child in UIParent) { child.gameObject.SetActive(false); }
+        for (int i = 0; i < 3; i++) { UIParent.GetChild(i).gameObject.SetActive(true); }
+        yield break;
+    }
     public void OnAttackParent() 
     {
         UIParent.GetChild(1).gameObject.SetActive(false);

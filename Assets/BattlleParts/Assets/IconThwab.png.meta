@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fffd96f899974114e8a9b9777acd053c
+guid: 675a1fc90431161488e799df46c179c5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Half_0
+      name: IconThwab_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 441
-        width: 817
-        height: 529
+        x: 187
+        y: 771
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92359f959f52c954b81d475f2285c94a
-      internalID: -108226007
+      spriteID: 9b8cfca3d31a01148ac5c003ee941ae3
+      internalID: -936737538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_1
+      name: IconThwab_2
       rect:
         serializedVersion: 2
-        x: 689
-        y: 459
-        width: 18
-        height: 20
+        x: 894
+        y: 787
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 650ae7a2c57f9db47a904a91960b37da
-      internalID: -940750480
+      spriteID: 8ad7fc0c2e6eccc43bb5eb1f9fb6e740
+      internalID: 1159739364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_2
+      name: IconThwab_8
       rect:
         serializedVersion: 2
-        x: 692
-        y: 479
-        width: 5
-        height: 5
+        x: 896
+        y: 97
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb0c36dc1db7321479aa964075090189
-      internalID: -1557456325
+      spriteID: 47efb8da2de48554daa8efa11f0855b7
+      internalID: -1682882170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_3
+      name: IconThwab_10
       rect:
         serializedVersion: 2
-        x: 752
-        y: 381
-        width: 31
-        height: 42
+        x: 165
+        y: 94
+        width: 620
+        height: 551
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ea46ed0812905a428cdcb6a6c5c8b09
-      internalID: -1432528822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inventory Half_4
-      rect:
-        serializedVersion: 2
-        x: 766
-        y: 421
-        width: 21
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8269a0d7f6d26ed4494697297135bac9
-      internalID: 1684894708
+      spriteID: d93dce699e4649e43a142ebc73f61d3e
+      internalID: -1182493728
       vertices: []
       indices: 
       edges: []
@@ -225,11 +204,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Inventory Half_0: -108226007
-      Inventory Half_1: -940750480
-      Inventory Half_2: -1557456325
-      Inventory Half_3: -1432528822
-      Inventory Half_4: 1684894708
+      IconThwab_0: -936737538
+      IconThwab_1: -2137930363
+      IconThwab_10: -1182493728
+      IconThwab_11: -728329219
+      IconThwab_12: 1738814829
+      IconThwab_13: -333758594
+      IconThwab_14: -746666109
+      IconThwab_15: 1115034368
+      IconThwab_16: 918392700
+      IconThwab_17: -1202790360
+      IconThwab_2: 1159739364
+      IconThwab_3: -551700081
+      IconThwab_4: 470640907
+      IconThwab_5: 1146101956
+      IconThwab_6: 703113058
+      IconThwab_7: -461412287
+      IconThwab_8: -1682882170
+      IconThwab_9: -1578518276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,6 +13,11 @@ public class LoadBadger : MonoBehaviour
     public BatlleSystem battleBadger;
     public GameObject battleUI;
 
+    private void Start()
+    {
+        battleUI.active = false;
+    }
+
     public IEnumerator BattleEntry(GameObject enemyEngaged, Vector3 midpoint, Transform playerAngle)
     {
         // Be called when player collides with enemy

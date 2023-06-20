@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fffd96f899974114e8a9b9777acd053c
+guid: 22dcacbdc083a0e4689952f3f9d5111f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Half_0
+      name: Stab Icon_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 441
-        width: 817
-        height: 529
+        x: 187
+        y: 771
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92359f959f52c954b81d475f2285c94a
-      internalID: -108226007
+      spriteID: aec8f65e6e44861498b9421562569216
+      internalID: -1716682433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_1
+      name: Stab Icon_2
       rect:
         serializedVersion: 2
-        x: 689
-        y: 459
-        width: 18
-        height: 20
+        x: 894
+        y: 787
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 650ae7a2c57f9db47a904a91960b37da
-      internalID: -940750480
+      spriteID: c08339077c68761448293b034e887f1f
+      internalID: 123848635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_2
+      name: Stab Icon_8
       rect:
         serializedVersion: 2
-        x: 692
-        y: 479
-        width: 5
-        height: 5
+        x: 896
+        y: 97
+        width: 645
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb0c36dc1db7321479aa964075090189
-      internalID: -1557456325
+      spriteID: f50188c4019ff3546890596fa5e473da
+      internalID: -621000649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventory Half_3
+      name: Stab Icon_10
       rect:
         serializedVersion: 2
-        x: 752
-        y: 381
-        width: 31
-        height: 42
+        x: 165
+        y: 94
+        width: 620
+        height: 551
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ea46ed0812905a428cdcb6a6c5c8b09
-      internalID: -1432528822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inventory Half_4
-      rect:
-        serializedVersion: 2
-        x: 766
-        y: 421
-        width: 21
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8269a0d7f6d26ed4494697297135bac9
-      internalID: 1684894708
+      spriteID: 71aebabf256d52d49b6191dba8482759
+      internalID: 1819856998
       vertices: []
       indices: 
       edges: []
@@ -225,11 +204,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Inventory Half_0: -108226007
-      Inventory Half_1: -940750480
-      Inventory Half_2: -1557456325
-      Inventory Half_3: -1432528822
-      Inventory Half_4: 1684894708
+      Stab Icon_0: -1716682433
+      Stab Icon_1: 359621526
+      Stab Icon_10: 1819856998
+      Stab Icon_11: -458582829
+      Stab Icon_12: -705995271
+      Stab Icon_13: -138041258
+      Stab Icon_14: 1884082063
+      Stab Icon_15: -972331511
+      Stab Icon_16: 410790212
+      Stab Icon_17: 1266718380
+      Stab Icon_2: 123848635
+      Stab Icon_3: -1740987331
+      Stab Icon_4: 1196970135
+      Stab Icon_5: -1497137588
+      Stab Icon_6: 991076569
+      Stab Icon_7: 2124216418
+      Stab Icon_8: -621000649
+      Stab Icon_9: -1595853284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
