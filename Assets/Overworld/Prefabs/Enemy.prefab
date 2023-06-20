@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4691618367881137923}
   - component: {fileID: 2704140545288340224}
-  - component: {fileID: 6315736186501433785}
   - component: {fileID: 2750120327823665724}
   - component: {fileID: 8590130811852771552}
+  - component: {fileID: 3578256215829756071}
   - component: {fileID: 7995812385782115778}
   - component: {fileID: 8791722570072002617}
   m_Layer: 0
@@ -50,20 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
---- !u!114 &6315736186501433785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713775858161881284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e43c56a8379894d9058d3e98647bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7.09
-  theBadger: {fileID: 0}
 --- !u!54 &2750120327823665724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,6 +100,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3578256215829756071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713775858161881284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ce4b741ec04164398ea2d343982755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  theBadger: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &7995812385782115778
 MonoBehaviour:
   m_ObjectHideFlags: 0

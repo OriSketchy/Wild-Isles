@@ -15,7 +15,7 @@ public class LoadBadger : MonoBehaviour
 
     private void Start()
     {
-        battleUI.active = false;
+        battleUI.SetActive(false);
     }
 
     public IEnumerator BattleEntry(GameObject enemyEngaged, Vector3 midpoint, Transform playerAngle)
@@ -23,6 +23,7 @@ public class LoadBadger : MonoBehaviour
         // Be called when player collides with enemy
         // paralyse them
         player.GetComponent<WASDMovement>().enabled = false;
+        enemyEngaged.GetComponent<EnemyMovement>().enabled = false;
         //enemyEngaged.GetComponent<WASDMovement>().enabled = false;
         // Halt for a second 
         yield return new WaitForSeconds(1);
@@ -41,16 +42,16 @@ public class LoadBadger : MonoBehaviour
     {
         // Return camera target to player
         playerCam.target = player.transform;
+        // Halt for a second
+
+        // ^^^^^ DON'T TOUCH THIS LINE WE'LL FIX IT LATER ^^^^^
         tempTarget.SetActive(false);
         // Disable HUD, BB and Enemy
-        battleUI.SetActive(false);
         battleBadger.playerUnit = null;
         battleBadger.enemyUnit = null;
         battleBadger.gameObject.SetActive(false);
-        // Halt for a second
-        //yield return new WaitForSeconds(1);
-        // ^^^^^ DON'T TOUCH THIS LINE WE'LL FIX IT LATER ^^^^^
-
+        battleUI.SetActive(false);
+        Debug.Log("check");
         // Un-paralyse Duffin
         player.GetComponent<WASDMovement>().enabled = true;
         Debug.Log("oarugh");

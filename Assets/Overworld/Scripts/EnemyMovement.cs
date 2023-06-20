@@ -4,51 +4,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class WASDMovement : MonoBehaviour
+// CHANGE:
+// - Inputs to variables
+// - Animations to enemy animation sets
+// - Basic enemy movement AI (set unique stats for each enemy)
+//  - Chance to move toward player
+
+
+public class EnemyMovement : MonoBehaviour
 {
     Animator animator;
     [SerializeField]
     [Range(0, 10)] public float speed;
 
     public LoadBadger theBadger;
+    public GameObject player;
 
-    private void Start()
+    // For counting active inputs
+    int inputNum = 0;
+
+    // 0A, 1D, 2W, 3S, the rest are faux
+    private List<bool> movement = new List<bool> { false, false, false, false, false, false, false };
+
+    private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        StartCoroutine(RandMove());
     }
 
     void FixedUpdate()
     {
         //vector is automatically set to 0, 0, 0 so player doesnt move without input
         Vector3 direction = Vector3.zero;
+        inputNum = 0;
 
         //Add up player input
-        if (Input.GetKey("d"))
+        if (movement[1])
         {
             direction += Vector3.right;
+            inputNum += 1;
 
             // TEMP FIX
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
-        if (Input.GetKey("a"))
+        if (movement[0])
         {   
             direction += Vector3.left;
+            inputNum += 1;
 
             // TEMP FIX
             this.transform.localScale = new Vector3(1, 1, 1);
         }
-        if (Input.GetKey("w"))
+        if (movement[2])
         {
             direction += Vector3.forward;
+            inputNum += 1;
         }
-        if (Input.GetKey("s"))
+        if (movement[3])
         {
             direction += Vector3.back;
+            inputNum += 1;
         }
 
         //disable movement if more than 2 keys pressed
         //there is probably a better way to do it, i'll hunt through the unity scripting API later
-        if(Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("d")  ||  Input.GetKey("w")  && Input.GetKey("s") && Input.GetKey("a")  ||  Input.GetKey("w")  && Input.GetKey("d") && Input.GetKey("a")  ||  Input.GetKey("d")  && Input.GetKey("s") && Input.GetKey("a"))
+        if(inputNum > 2)
         {
             direction = Vector3.zero;
         }
@@ -59,46 +79,26 @@ public class WASDMovement : MonoBehaviour
         //if getting any WASD input play walk animation
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
-            animator.SetBool("Walk", true);
+            // FIX
+            //animator.SetBool("Walk", true);
         }
 
         //if either not getting any  WASD input, or getting conflicted input play idle anim.
         //There is definitely a better way to do this, possibly getting the velocity of the player and if they're above a certain speed enable walk anim?
         if(!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") || Input.GetKey("a")  && Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("d") || Input.GetKey("w")  && Input.GetKey("s") && Input.GetKey("a")    ||    Input.GetKey("w")  && Input.GetKey("d") && Input.GetKey("a")  ||  Input.GetKey("d")  && Input.GetKey("s") && Input.GetKey("a"))
         {
-            animator.SetBool("Walk", false);
+            //animator.SetBool("Walk", false);
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    IEnumerator RandMove()
     {
-        // Give enemies a unique movement script
-        if (this.CompareTag("Enemy"))
-            return;
-        if (other.CompareTag("Enemy"))
-        {
-            this.transform.position += Vector3.left * 5f;
-
-            // Get all enemy data, angle of player to enemy, and midpoint of the two. Coroutine will handle the rest
-            GameObject enemy = other.gameObject;
-            Transform playerAngle = this.transform.GetChild(1).gameObject.GetComponent<LookAtEnemy>().Stare(enemy);
-            Vector3 midpoint = (enemy.transform.position + this.transform.position) * 0.5f;
-
-            animator.SetBool("Walk", false);
-
-            StartCoroutine(theBadger.BattleEntry(enemy, midpoint, playerAngle));
-        }
-        else if (other.CompareTag("AsleepEnemy"))
-        {
-            // Awaken enemy movement
-            other.GetComponent<EnemyMovement>().enabled = true;
-            // Change tag
-            other.tag = "Enemy";
-            // Resize collider
-            other.GetComponent<SphereCollider>().radius = 1.1f;
-        }
-        // check if player is actually colliding with enemy. Or if even is Duffin
-        else if (!other.CompareTag("Enemy"))
-            return;
+        movement[Random.Range(0, 4)] = true;
+        movement[Random.Range(0, 6)] = true;
+        yield return new WaitForSeconds((Random.Range(0, 200)/100));
+        movement = new List<bool> { false, false, false, false, false, false, false };
+        
+        StartCoroutine(RandMove());
+        yield break;
     }
 }

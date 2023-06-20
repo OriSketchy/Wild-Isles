@@ -28,6 +28,7 @@ public class BatlleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     public Transform UIParent;
+    public GameObject fleeFix;
 
     public BattleState state;
     private int turnCount;
@@ -35,6 +36,7 @@ public class BatlleSystem : MonoBehaviour
     {
         turnCount = 0;
         state = BattleState.START;
+        ResetButtons();
         StartCoroutine(SetupBattle());
     }
 
@@ -189,10 +191,15 @@ public class BatlleSystem : MonoBehaviour
     {
         foreach (Transform child in UIParent) { child.gameObject.SetActive(false); }
         for (int i = 0; i < 3; i++) { UIParent.GetChild(i).gameObject.SetActive(true); }
+        // for some reasont this one button refuses to deselect so let's manually do it for it
+        //fleeFix.GetComponent<Button>().enabled = false;
+        //fleeFix.GetComponent<Button>().enabled = true;
         yield break;
     }
-    public void OnAttackParent() 
+    public void OnAttackParent()
     {
+        if (state != BattleState.PLAYERTURN)
+            return;
         UIParent.GetChild(1).gameObject.SetActive(false);
         UIParent.GetChild(3).gameObject.SetActive(true);
     }
