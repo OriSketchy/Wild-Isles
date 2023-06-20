@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CanSpeak
   - Enemy
+  - AsleepEnemy
   layers:
   - Default
   - TransparentFX
