@@ -51,10 +51,8 @@ public class LoadBadger : MonoBehaviour
         battleBadger.enemyUnit = null;
         battleBadger.gameObject.SetActive(false);
         battleUI.SetActive(false);
-        Debug.Log("check");
         // Un-paralyse Duffin
         player.GetComponent<WASDMovement>().enabled = true;
-        Debug.Log("oarugh");
         yield break;
     }
 }

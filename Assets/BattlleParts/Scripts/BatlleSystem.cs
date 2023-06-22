@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class BatlleSystem : MonoBehaviour
     public Unit enemyUnit;
 
     // figure out changing this to a textmeshpro please
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
@@ -43,16 +44,10 @@ public class BatlleSystem : MonoBehaviour
     // BATTLE START STATE
     IEnumerator SetupBattle()
     {
-        // instantiates are temporary. getcomponent is forever.
-        //GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
-        //playerUnit = playerGo.GetComponent<Unit>();
-
-        //GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
-        //enemyUnit = enemyGo.GetComponent<Unit>();
-
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
         ResetButtons();
+        UIParent.BroadcastMessage("ButtonDisable");
 
         // Dialogue text is placeholder
         switch (enemyUnit.unitID)
@@ -87,10 +82,13 @@ public class BatlleSystem : MonoBehaviour
     // BATTLE PLAYER TURN STATE
     void PlayerTurn()
     {
+        UIParent.BroadcastMessage("ButtonEnable");
+        state = BattleState.PLAYERTURN;
         dialogueText.text = "Choose your action!";
     }
     IEnumerator PlayerAttack(int damType, int damMod = 0)
     {
+        UIParent.BroadcastMessage("ButtonDisable");
         // damages the enemy and checks if dead
         bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType, damMod);
         // updates enemy hp and throws dialogue
@@ -113,6 +111,7 @@ public class BatlleSystem : MonoBehaviour
     }
     IEnumerator PlayerHeal(int itemSlot)
     {
+        UIParent.BroadcastMessage("ButtonDisable");
         // placeholder amount - change to inventory item
         playerUnit.HealUnit(itemSlot);
         playerHUD.SetHP(playerUnit.currentHP);
@@ -163,7 +162,7 @@ public class BatlleSystem : MonoBehaviour
         // remember to make a game over scene please
         else if(state == BattleState.LOST) 
         {
-            dialogueText.text = "You are defeated!";
+            dialogueText.text = "You are defeated.";
 
             Destroy(playerUnit.gameObject);
 
@@ -184,18 +183,17 @@ public class BatlleSystem : MonoBehaviour
     public void ResetButtons()
     {
         // use this for "back" buttons
+        // silly little function
         StartCoroutine(ResetsButtons());
     }
-
     public IEnumerator ResetsButtons()
     {
         foreach (Transform child in UIParent) { child.gameObject.SetActive(false); }
         for (int i = 0; i < 3; i++) { UIParent.GetChild(i).gameObject.SetActive(true); }
-        // for some reasont this one button refuses to deselect so let's manually do it for it
-        //fleeFix.GetComponent<Button>().enabled = false;
-        //fleeFix.GetComponent<Button>().enabled = true;
+        dialogueText.text = "Choose your action!";
         yield break;
     }
+    // Remember the battle state will be changed in the damage/heal functions
     public void OnAttackParent()
     {
         if (state != BattleState.PLAYERTURN)
@@ -205,34 +203,19 @@ public class BatlleSystem : MonoBehaviour
     }
     public void OnItemParent() 
     {
+        if (state != BattleState.PLAYERTURN)
+            return;
+
         UIParent.GetChild(1).gameObject.SetActive(false);
         GameObject itemButtons = UIParent.GetChild(4).gameObject;
         itemButtons.SetActive(true);
-
-        // check each item is present. Disable if not
-        // assigning data to each button will be done externally
-        // okay actualy do ALL of this externally just enable the chiildren upon item pickup good lord
-        for(int i = 0; i < 3; i++) 
-        {
-            if (playerUnit.itemConsumes[i] != null) 
-            { 
-                itemButtons.transform.GetChild(i+2).gameObject.SetActive(true); 
-            } // jesus christ there has to be a better way
-            else 
-            { 
-                itemButtons.transform.GetChild(i+2).gameObject.SetActive(false);
-            }
-        }
     }
-    // For now the SP attacks will share the same damage bonus
     public void OnAttackButton(int damType)
     {
         // different buttons input different attack types
         // SP buttons will do damage based on current selected weapon (set defaults for demo)
-        if (state != BattleState.PLAYERTURN)
-            return;
         ResetButtons();
-
+        // For now the SP attacks will share the same damage bonus
         if (damType <= 3) { StartCoroutine(PlayerAttack(damType)); }
         else if(damType > 3) 
         {
@@ -246,9 +229,7 @@ public class BatlleSystem : MonoBehaviour
     }
     public void OnItemButton(int itemSlot)
     {
-        if (state != BattleState.PLAYERTURN)
-            return;
-
+        ResetButtons();
         // dialogue text is placeholder
         dialogueText.text = $"You eat your {playerUnit.itemConsumes[itemSlot].name} and restore HP!";
         StartCoroutine(PlayerHeal(itemSlot));
