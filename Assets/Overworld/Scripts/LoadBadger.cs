@@ -29,25 +29,17 @@ public class LoadBadger : MonoBehaviour
         player.transform.localScale = new Vector3(-1, 1, 1);
         enemyEngaged.transform.localScale = new Vector3(1, 1, 1);
 
-        // Move enemy away from player
-
-
         // Halt for a second 
         yield return new WaitForSeconds(1);
-
-        //// Set camera target as empty, then move empty to midpoint
-        //tempTarget.SetActive(true);
-        //tempTarget.transform.position = midpoint;
-        //playerCam.target = tempTarget.transform;
 
         // New way - camera is parented to an object that follows player, so the axis is offset. This overrides that empty's following script
         tempTarget.gameObject.SetActive(true);
         playerCam.target = tempTarget;
 
         // using enemy rotation, offset by 90 degrees so Duffin is on the left no matter what
-        //angle.rotation = Quaternion.Euler(0, angle.rotation.y + 90, 0);
-        playerCam.transform.rotation = Quaternion.Euler(0, angle.rotation.y, 0);
+        playerCam.transform.Rotate(new Vector3(0, angle.eulerAngles.y + 90, 0)); ;
         tempTarget.position = midpoint;
+        angle.parent = enemyEngaged.transform;
 
         // Load battle data
         battleUI.SetActive(true);
@@ -63,9 +55,6 @@ public class LoadBadger : MonoBehaviour
         playerCam.target = player.transform;
         playerCam.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        // Halt for a second
-        // NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO 
-        // ^^^^^ DON'T TOUCH THIS LINE WE'LL FIX IT LATER ^^^^^
         tempTarget.gameObject.SetActive(false);
 
         // Disable HUD, BB and Enemy

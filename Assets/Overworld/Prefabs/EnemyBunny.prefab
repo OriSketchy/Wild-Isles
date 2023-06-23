@@ -13,8 +13,16 @@ PrefabInstance:
       value: EnemyBunny
       objectReference: {fileID: 0}
     - target: {fileID: 3578256215829756071, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
+      propertyPath: eyes
+      value: 
+      objectReference: {fileID: 4144835070171125366, guid: 015f19bded64efa4f8cd7a13e4fdc92d, type: 3}
+    - target: {fileID: 3578256215829756071, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: speed
       value: 1.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578256215829756071, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
+      propertyPath: player
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4691618367881137923, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: m_RootOrder
@@ -22,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4691618367881137923, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.11
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: 4691618367881137923, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691618367881137923, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.87
+      value: 8.86
       objectReference: {fileID: 0}
     - target: {fileID: 4691618367881137923, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -101,7 +109,8 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4455020692968373892, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1713775858161881284, guid: 0c3b0589fa626074a81a81324e59c6f7, type: 3}

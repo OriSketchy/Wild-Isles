@@ -115,8 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   theBadger: {fileID: 0}
-  player: {fileID: 0}
-  eyes: {fileID: 636491225042515397}
+  player: {fileID: 2156121173423857323, guid: 9d4800ac98b155e468ff0717f4581cf4, type: 3}
+  eyes: {fileID: 4144835070171125366, guid: 015f19bded64efa4f8cd7a13e4fdc92d, type: 3}
 --- !u!114 &7995812385782115778
 MonoBehaviour:
   m_ObjectHideFlags: 0

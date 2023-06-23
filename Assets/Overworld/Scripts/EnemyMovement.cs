@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 // CHANGE:
 // - Inputs to variables
@@ -124,8 +125,9 @@ public class EnemyMovement : MonoBehaviour
     // idk how else to do this ok
     public Transform Stare(Transform enemy)
     {
+        // looks at player and returns as a transform
+        eyes.parent = null;
         eyes.LookAt(enemy);
-        Debug.Log($"Eyes Y axis = {eyes.rotation.eulerAngles}");
         return eyes;
     }
 }
