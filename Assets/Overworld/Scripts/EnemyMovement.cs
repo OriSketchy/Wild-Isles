@@ -20,16 +20,21 @@ public class EnemyMovement : MonoBehaviour
     public LoadBadger theBadger;
     public GameObject player;
 
+    private SphereCollider myCollider;
+    [SerializeField] private Transform eyes;
+
     // For counting active inputs
     int inputNum = 0;
 
     // 0A, 1D, 2W, 3S, the rest are faux
+    // Used in place of player input
     private List<bool> movement = new List<bool> { false, false, false, false, false, false, false };
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(RandMove());
+        myCollider = this.GetComponent<SphereCollider>();
     }
 
     void FixedUpdate()
@@ -100,5 +105,27 @@ public class EnemyMovement : MonoBehaviour
         
         StartCoroutine(RandMove());
         yield break;
+    }
+
+    // Used on flee only
+    // prevent player from re-entering battle by both disabling collider and moving away from enemy
+    public void InitiateCooldown()
+    {
+        StartCoroutine(Cooldown());
+    }
+    public IEnumerator Cooldown()
+    {
+        myCollider.enabled = false;
+        yield return new WaitForSeconds(5);
+        myCollider.enabled = true;
+        yield break;
+    }
+
+    // idk how else to do this ok
+    public Transform Stare(Transform enemy)
+    {
+        eyes.LookAt(enemy);
+        Debug.Log($"Eyes Y axis = {eyes.rotation.eulerAngles}");
+        return eyes;
     }
 }

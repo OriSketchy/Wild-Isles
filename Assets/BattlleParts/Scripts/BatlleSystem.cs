@@ -173,8 +173,10 @@ public class BatlleSystem : MonoBehaviour
         {
             dialogueText.text = "You flee the battle";
             enemyUnit.currentHP = enemyUnit.maxHP;
+            // Prevents player from re-entering battle immediately
+            enemyUnit.GetComponent<EnemyMovement>().InitiateCooldown();
+            enemyUnit.GetComponent<EnemyMovement>().enabled = true;
             StartCoroutine(theBadger.BattleExit());
-            //enemyUnit.GetComponent<WASDMovement>().enabled = true;
         }
     }
 

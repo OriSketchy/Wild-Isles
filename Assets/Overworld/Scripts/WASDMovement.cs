@@ -77,16 +77,17 @@ public class WASDMovement : MonoBehaviour
             return;
         if (other.CompareTag("Enemy"))
         {
-            this.transform.position += Vector3.left * 5f;
-
             // Get all enemy data, angle of player to enemy, and midpoint of the two. Coroutine will handle the rest
-            GameObject enemy = other.gameObject;
-            Transform playerAngle = this.transform.GetChild(1).gameObject.GetComponent<LookAtEnemy>().Stare(enemy);
-            Vector3 midpoint = (enemy.transform.position + this.transform.position) * 0.5f;
+            Transform enemy = other.transform;
+            enemy.position = Vector3.MoveTowards(enemy.position, this.transform.position, -5);
+
+            Transform angle = enemy.GetComponent<EnemyMovement>().Stare(this.transform);
+
+            Vector3 midpoint = (enemy.position + this.transform.position) * 0.5f;
 
             animator.SetBool("Walk", false);
 
-            StartCoroutine(theBadger.BattleEntry(enemy, midpoint, playerAngle));
+            StartCoroutine(theBadger.BattleEntry(enemy.gameObject, midpoint, angle));
         }
         else if (other.CompareTag("AsleepEnemy"))
         {
