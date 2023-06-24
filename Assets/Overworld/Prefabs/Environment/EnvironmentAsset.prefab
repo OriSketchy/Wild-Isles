@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998404626888976951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5527038470239507319}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6286502872694376157
 MeshFilter:
@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5527038470239507319}
   - component: {fileID: 5655522100827579666}
+  - component: {fileID: 5493663874126301416}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -149,3 +150,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5493663874126301416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238424967678652788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcc3f3647e78e04484cb341be924522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSelection: []
+  source: {fileID: 5655522100827579666}
