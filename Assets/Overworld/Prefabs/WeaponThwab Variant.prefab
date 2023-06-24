@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4489064450546800736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922425839334441016, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: itemName
+      value: Conker Mallet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: damageMod
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: damageType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009288411636069413, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_Name
+      value: WeaponThwab Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}

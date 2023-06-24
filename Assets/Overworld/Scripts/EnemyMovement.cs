@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 10)] public float speed;
 
-    public LoadBadger theBadger;
+    LoadBadger theBadger;
     public GameObject player;
 
     private SphereCollider myCollider;
@@ -33,9 +33,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        theBadger = FindFirstObjectByType<LoadBadger>();
         animator = GetComponentInChildren<Animator>();
-        StartCoroutine(RandMove());
         myCollider = this.GetComponent<SphereCollider>();
+        StartCoroutine(RandMove());
     }
 
     void FixedUpdate()

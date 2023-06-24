@@ -93,7 +93,6 @@ public class BatlleSystem : MonoBehaviour
         bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType, damMod);
         // updates enemy hp and throws dialogue
         enemyHUD.SetHP(enemyUnit.currentHP);
-        dialogueText.text = "You strike the enemy!";
         // end of turn
         // yield return is here so player can't spam click buttons
         if(isDead) 
@@ -115,6 +114,7 @@ public class BatlleSystem : MonoBehaviour
         // placeholder amount - change to inventory item
         playerUnit.HealUnit(itemSlot);
         playerHUD.SetHP(playerUnit.currentHP);
+        playerUnit.itemConsumes.RemoveAt(itemSlot);
         yield return new WaitForSeconds(2f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -222,9 +222,21 @@ public class BatlleSystem : MonoBehaviour
         else if(damType > 3) 
         {
             // Dialogue text is placeholder
-            if(playerUnit.currentSP < 10) { dialogueText.text = "You don't have enough SP for that!"; }
-            else if(playerUnit.items[damType - 4]) { StartCoroutine(PlayerAttack(damType, 15)); }
-            else { dialogueText.text = "You don't have the right weapon for that!"; }
+            if(playerUnit.currentSP < 10) 
+            {
+                dialogueText.text = "You don't have enough SP for that!";
+            }
+            else if(playerUnit.items[damType - 4] != null)
+            {
+                dialogueText.text = $"You use 10 Scrap to attack the enemy with {playerUnit.items[damType - 4].name}!";
+                StartCoroutine(PlayerAttack(playerUnit.items[damType-4].damageMod,
+                    playerUnit.items[damType - 4].damageType));
+            }
+            else 
+            {
+                // this shouldn't happen. dont ask why it's still here.
+                dialogueText.text = "You don't have the right weapon for that! also how did you click this this is debugged now what";
+            }
 
             playerUnit.currentSP -= 10;
         }

@@ -24,10 +24,10 @@ public class Unit : MonoBehaviour
     // am i going to change this? not unless it becomes a liability
     public int unitID;
 
-    // Defining what items Duffin has (allows SP buttons to be pressed)
+    // Defining what items Duffin has (bools for allowing SP buttons to be pressed - clunky fix for a Demo build)
     // stab, grab, thwab
-    public List<bool> items = new List<bool> { false, false, false };
-    public List<ItemConsume> itemConsumes = new List<ItemConsume> { null, null, null };
+    public List<WeaponPickup> items = new List<WeaponPickup> {};
+    public List<ItemPickup> itemConsumes = new List<ItemPickup> {};
 
     public bool TakeDamage(float dmg, int dmgType, int damMod = 0)
     {
@@ -51,7 +51,7 @@ public class Unit : MonoBehaviour
     }
     public void HealUnit(int itemSlot)
     {
-        ItemConsume currentItem = itemConsumes[itemSlot];
+        ItemPickup currentItem = itemConsumes[itemSlot];
 
         currentHP += currentItem.healAmount;
         if (currentHP >= 0) currentHP = maxHP;

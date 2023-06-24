@@ -10,7 +10,7 @@ public class ItemCheck : MonoBehaviour
     public Unit playerUnit;
     private void Awake()
     {
-        if (playerUnit.itemConsumes[slot] == null)
+        if (playerUnit.itemConsumes.Count-1 < slot)
         {
             this.GetComponent<Button>().interactable = false;
             childImage.gameObject.SetActive(false);
@@ -19,7 +19,7 @@ public class ItemCheck : MonoBehaviour
         {
             // add item image to child to this button
             childImage.gameObject.SetActive(true);
-            childImage = playerUnit.itemConsumes[slot].GetComponent<Image>();
+            childImage.sprite = playerUnit.itemConsumes[slot].texture;
             // maybe healing stats too?
             this.GetComponent<Button>().interactable = true;
         }

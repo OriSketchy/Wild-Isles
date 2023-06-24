@@ -11,6 +11,7 @@ public class WASDMovement : MonoBehaviour
     [Range(0, 10)] public float speed;
 
     public LoadBadger theBadger;
+    public Unit self;
 
     private void Start()
     {
@@ -98,8 +99,16 @@ public class WASDMovement : MonoBehaviour
             // Resize collider
             other.GetComponent<SphereCollider>().radius = 1.1f;
         }
-        // check if player is actually colliding with enemy. Or if even is Duffin
-        else if (!other.CompareTag("Enemy"))
-            return;
+        else if (other.CompareTag("PickupConsume"))
+        {
+            // add to rudimentary inventory, then disables its overworld asset
+            self.itemConsumes.Add(other.GetComponent<ItemPickup>());
+            other.gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("PickupWeapon"))
+        {
+            //self.items[other.GetComponent<ItemPickup>().amount] = true;
+            //other.gameObject.SetActive(false);
+        }
     }
 }
