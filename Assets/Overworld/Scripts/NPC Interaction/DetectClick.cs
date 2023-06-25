@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class DetectClick : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField]
-    Dialogue dialogue;
+    public Dialogue textBox;
+    public DialogueClass thisDialogue;
 
     private void Start()
     {
@@ -30,8 +30,8 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
         //Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
         if (eventData.pointerCurrentRaycast.gameObject.CompareTag("CanSpeak"))
         {
-            Debug.Log("Script works");
-            dialogue.StartDialogue();
+            // Send next dialogue to be read - loop dialogue when other options deplete
+            textBox.StartDialogue(thisDialogue);
         }
     }
 }

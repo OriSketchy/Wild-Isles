@@ -9,6 +9,7 @@ TagManager:
   - AsleepEnemy
   - PickupConsume
   - PickupWeapon
+  - SpawnRegion
   layers:
   - Default
   - TransparentFX

@@ -13,9 +13,15 @@ public class LoadBadger : MonoBehaviour
     public BatlleSystem battleBadger;
     public GameObject battleUI;
 
+    //REMOVE BEFORE BUILD
+    public MeshRenderer border;
+
     private void Start()
     {
         battleUI.SetActive(false);
+
+        //REMOVE BEFORE BUILD
+        border.enabled = false;
     }
 
     public IEnumerator BattleEntry(GameObject enemyEngaged, Vector3 midpoint, Transform angle)

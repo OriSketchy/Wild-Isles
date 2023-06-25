@@ -6,19 +6,21 @@ using cakeslice; //outliner namespace
 
 public class EnableOutline : MonoBehaviour
 {
+    Outline myOutline;
     void Start()
     {
-        GetComponent<Outline>().enabled = false;
+        myOutline = GetComponent<Outline>();
+        myOutline.enabled = false;
     }
 
     void OnMouseEnter()
     {
         Debug.Log("MouseOver");
-        GetComponent<Outline>().enabled = true;
+        myOutline.enabled = true;
     }
 
     private void OnMouseExit()
     {
-        GetComponent<Outline>().enabled = false;
+        myOutline.enabled = false;
     }
 }

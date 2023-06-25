@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 
 public class Dialogue : MonoBehaviour
 {
-     public TextMeshProUGUI textComponent;
-     public string[] lines;
-     [Range(0f, 0.1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
-     //[Range(0f, 2f)] public float mouseCooldown;
-
-     private int index;
+    public TextMeshProUGUI textComponent;
+    public string[] lines;
+    [Range(0f, 0.1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
+    //[Range(0f, 2f)] public float mouseCooldown;
+    
+    private int index;
+    private DialogueClass currentNPC;
 
     void Start()
     {
@@ -39,11 +41,13 @@ public class Dialogue : MonoBehaviour
          }
      }
 
-     public void StartDialogue()
+     public void StartDialogue(DialogueClass dialogueData)
      {
+        currentNPC = dialogueData;
+        lines = dialogueData.options[dialogueData.customIndex];
         gameObject.SetActive(true);
         index = 0;
-         StartCoroutine(TypeLine());
+        StartCoroutine(TypeLine());
      }
 
      IEnumerator TypeLine()
@@ -65,7 +69,14 @@ public class Dialogue : MonoBehaviour
          }
          else
          {
-             gameObject.SetActive(false);
+            // adds to unique NPC text index (basically "has spoken this line")
+            // all of this is handled according to each prefab
+            currentNPC.customIndex += 1;
+            if (currentNPC.customIndex > currentNPC.maxIndex)
+                currentNPC.customIndex = currentNPC.maxIndex;
+
+            textComponent.text = string.Empty;
+            gameObject.SetActive(false);
          }
      }
  }

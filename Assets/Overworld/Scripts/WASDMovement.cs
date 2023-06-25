@@ -107,8 +107,14 @@ public class WASDMovement : MonoBehaviour
         }
         else if (other.CompareTag("PickupWeapon"))
         {
-            //self.items[other.GetComponent<ItemPickup>().amount] = true;
-            //other.gameObject.SetActive(false);
+            WeaponPickup weapon = other.GetComponent<WeaponPickup>();
+            self.items[weapon.damageType-1] = weapon;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("SpawnRegion"))
+        {
+            spawnRegion region = other.GetComponent<spawnRegion>();
+            region.Spawn();
         }
     }
 }
