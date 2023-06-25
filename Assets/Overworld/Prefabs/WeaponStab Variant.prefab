@@ -52,6 +52,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4626072376724709088, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_Size.x
+      value: 2.388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626072376724709088, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6685684
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626072376724709088, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cbedf159e743cf41ba4499feafa4f12, type: 3}
+    - target: {fileID: 4626072376724709088, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: texture
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cbedf159e743cf41ba4499feafa4f12, type: 3}
     - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
       propertyPath: itemName
       value: Recycled Blade
