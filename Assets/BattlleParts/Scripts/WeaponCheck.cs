@@ -9,11 +9,15 @@ public class WeaponCheck : MonoBehaviour
     public Unit playerUnit;
     private void Awake()
     {
+        RefreshButton();
+    }
+    public void RefreshButton()
+    {
         if (playerUnit.items[slot-4] == null)
         {
             this.GetComponent<Button>().interactable = false;
         }
-        else
+        else if (playerUnit.items[slot-4] != null)
         {
             this.GetComponent<Button>().interactable = true;
         }

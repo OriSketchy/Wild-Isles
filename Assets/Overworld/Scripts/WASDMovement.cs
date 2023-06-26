@@ -13,6 +13,8 @@ public class WASDMovement : MonoBehaviour
     public LoadBadger theBadger;
     public Unit self;
 
+    public Canvas UIParent;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -110,12 +112,14 @@ public class WASDMovement : MonoBehaviour
             // add to rudimentary inventory, then disables its overworld asset
             self.itemConsumes.Add(other.GetComponent<ItemPickup>());
             other.gameObject.SetActive(false);
+            UIParent.BroadcastMessage("RefreshButton");
         }
         else if (other.CompareTag("PickupWeapon"))
         {
             WeaponPickup weapon = other.GetComponent<WeaponPickup>();
             self.items[weapon.damageType-1] = weapon;
             other.gameObject.SetActive(false);
+            UIParent.BroadcastMessage("RefreshButton");
         }
         else if (other.CompareTag("SpawnRegion"))
         {

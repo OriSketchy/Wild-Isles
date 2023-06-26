@@ -23,6 +23,7 @@ public class BatlleSystem : MonoBehaviour
 
     public Transform UIParent;
     public GameObject tempTarget;
+    public Camera mainCamera;
 
     public BattleState state;
     private int turnCount;
@@ -62,6 +63,9 @@ public class BatlleSystem : MonoBehaviour
                 break;
             case 100:
                 dialogueText.text = "You stand upon the grave of God and weep, for the infernal bear is here.";
+                break;
+            case 69:
+                dialogueText.text = "Somehow, you have engaged the God of your land. He's displeased. Good luck.";
                 break;
         }
         // delaying coroutine so player gets a chance to read. May make this wait skippable with input
@@ -151,15 +155,20 @@ public class BatlleSystem : MonoBehaviour
             if (enemyUnit.items.Count > 0)
             {
                 // weapon drop cutscene
+                StartCoroutine(WeaponPickup());
             }
             else if (enemyUnit.itemConsumes.Count > 0)
             {
                 // item drop cutscene
+                StartCoroutine(ConsumePickup());
             }
+            else
+            {
+                // regular enemy
+                Destroy(enemyUnit.gameObject);
 
-            Destroy(enemyUnit.gameObject);
-
-            StartCoroutine(theBadger.BattleExit());
+                StartCoroutine(theBadger.BattleExit());
+            }
         }
         // this straight up kills the bird idk if we can bring him back 
         // remember to make a game over scene please
@@ -261,48 +270,64 @@ public class BatlleSystem : MonoBehaviour
     // MINI CUTSCENES
     IEnumerator WeaponPickup()
     {
-        var damType = enemyUnit.items[0].damageType.ToString();
+        //var damType = "DAMTYPE";
 
-        if (damType == "0")
-            damType = "Stab";
-        else if (damType == "1")
-            damType = "Grab";
-        else if (damType == "2")
-            damType = "Thwab";
+        //if (enemyUnit.items[0].damageType.ToString() == "1")
+        //    damType = "Stab";
+        //else if (enemyUnit.items[0].damageType.ToString() == "2")
+        //    damType = "Grab";
+        //else if (enemyUnit.items[0].damageType.ToString() == "3")
+        //    damType = "Thwab";
 
         // HOLD DEATH ANIMATION
-        dialogueText.text = $"What's this?";
-        yield return new WaitForSeconds(1f);
+        dialogueText.text = $"Enemy is defe- What's this?";
+        yield return new WaitForSeconds(2f);
+        // move and zoom camera (standard is 60)
+        // FIGURE OUT HOW TO INTERPOLATE THIS
         tempTarget.transform.position = enemyUnit.transform.position;
-        // ENEMY DESTROYS HERE
-        Destroy(enemyUnit.gameObject);
+        mainCamera.fieldOfView = 20;
+        // ENEMY HIDES HERE (sprite replaced with item sprite)
+        // CHANGE THIS TO SUIT ANIMATOR
+        enemyUnit.gameObject.SetActive(false);
+        Instantiate(enemyUnit.items[0].gameObject, new Vector3(enemyUnit.transform.position.x, 1, enemyUnit.transform.position.z), Quaternion.identity);
         dialogueText.text = $"This enemy contained a Weapon!";
-        yield return new WaitForSeconds(1f);
-        dialogueText.text = $"You picked up a {enemyUnit.items[0].name} from the fallen {enemyUnit.name}";
-        yield return new WaitForSeconds(0.5f);
-        dialogueText.text = $"You can now use {damType} type Scrap Attacks!";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
+        dialogueText.text = $"A {enemyUnit.items[0].itemName} was inside the fallen {enemyUnit.unitName}";
+        yield return new WaitForSeconds(1.5f);
+        Destroy(enemyUnit.gameObject);
+
+        // camera is mostly restored elsewhere. Unzoom here
+        mainCamera.fieldOfView = 60;
 
         StartCoroutine(theBadger.BattleExit());
-        yield break;
+        //yield break;
     }
     IEnumerator ConsumePickup()
     {
         // Consume drop cutscene
         // HOLD DEATH ANIMATION
-        dialogueText.text = $"What's this?";
+        dialogueText.text = $"You slayed the enem- What's this?";
         yield return new WaitForSeconds(1f);
+        // move and zoom camera (standard is 60)
+        // FIGURE OUT HOW TO INTERPOLATE THIS
         tempTarget.transform.position = enemyUnit.transform.position;
-        // ENEMY DESTROYS HERE
-        Destroy(enemyUnit.gameObject);
+        mainCamera.fieldOfView = 20;
+        // ENEMY HIDES HERE (sprite replaced with item sprite)
+        // CHANGE THIS TO SUIT ANIMATOR
+        enemyUnit.gameObject.SetActive(false);
         dialogueText.text = $"This enemy contained an item!";
-        yield return new WaitForSeconds(1f);
-        dialogueText.text = $"You picked up a {enemyUnit.itemConsumes[0].name} from the fallen {enemyUnit.name}";
-        yield return new WaitForSeconds(0.5f);
+        Instantiate(enemyUnit.itemConsumes[0].gameObject, new Vector3(enemyUnit.transform.position.x, 1, enemyUnit.transform.position.z), Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        dialogueText.text = $"A {enemyUnit.itemConsumes[0].itemName} fell from the fallen {enemyUnit.unitName}";
+        yield return new WaitForSeconds(1.5f);
         dialogueText.text = $"You can use this to heal later on!";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(enemyUnit.gameObject);
+
+        // camera is mostly restored elsewhere. Unzoom here
+        mainCamera.fieldOfView = 60;
 
         StartCoroutine(theBadger.BattleExit());
-        yield break;
+        //yield break;
     }
 }

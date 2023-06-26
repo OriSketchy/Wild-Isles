@@ -76,7 +76,7 @@ public class LoadBadger : MonoBehaviour
 
         // Restore Duffin (BattleBadger manages if enemy is alive)
         player.GetComponent<WASDMovement>().enabled = true;
-        playerCollider.enabled = false;
+        playerCollider.enabled = true;
         yield break;
     }
 }

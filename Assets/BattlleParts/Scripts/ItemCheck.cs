@@ -10,6 +10,10 @@ public class ItemCheck : MonoBehaviour
     public Unit playerUnit;
     private void Awake()
     {
+        RefreshButton();
+    }
+    public void RefreshButton()
+    {
         if (playerUnit.itemConsumes.Count-1 < slot)
         {
             this.GetComponent<Button>().interactable = false;
