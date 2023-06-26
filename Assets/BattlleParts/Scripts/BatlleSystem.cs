@@ -10,13 +10,6 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEE }
 
 public class BatlleSystem : MonoBehaviour
 {
-    //public GameObject playerUnit;
-    //public GameObject enemyPrefab;
-    // SETUP VARIABLES TO GET INVENTORY DATA
-
-    // change how this works pretty please
-    //public Transform playerBattleStation;
-    //public Transform enemyBattleStation;
     public LoadBadger theBadger;
 
     public Unit playerUnit;
@@ -29,7 +22,7 @@ public class BatlleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     public Transform UIParent;
-    public GameObject fleeFix;
+    public GameObject tempTarget;
 
     public BattleState state;
     private int turnCount;
@@ -268,10 +261,48 @@ public class BatlleSystem : MonoBehaviour
     // MINI CUTSCENES
     IEnumerator WeaponPickup()
     {
+        var damType = enemyUnit.items[0].damageType.ToString();
+
+        if (damType == "0")
+            damType = "Stab";
+        else if (damType == "1")
+            damType = "Grab";
+        else if (damType == "2")
+            damType = "Thwab";
+
+        // HOLD DEATH ANIMATION
+        dialogueText.text = $"What's this?";
+        yield return new WaitForSeconds(1f);
+        tempTarget.transform.position = enemyUnit.transform.position;
+        // ENEMY DESTROYS HERE
+        Destroy(enemyUnit.gameObject);
+        dialogueText.text = $"This enemy contained a Weapon!";
+        yield return new WaitForSeconds(1f);
+        dialogueText.text = $"You picked up a {enemyUnit.items[0].name} from the fallen {enemyUnit.name}";
+        yield return new WaitForSeconds(0.5f);
+        dialogueText.text = $"You can now use {damType} type Scrap Attacks!";
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(theBadger.BattleExit());
         yield break;
     }
     IEnumerator ConsumePickup()
     {
+        // Consume drop cutscene
+        // HOLD DEATH ANIMATION
+        dialogueText.text = $"What's this?";
+        yield return new WaitForSeconds(1f);
+        tempTarget.transform.position = enemyUnit.transform.position;
+        // ENEMY DESTROYS HERE
+        Destroy(enemyUnit.gameObject);
+        dialogueText.text = $"This enemy contained an item!";
+        yield return new WaitForSeconds(1f);
+        dialogueText.text = $"You picked up a {enemyUnit.itemConsumes[0].name} from the fallen {enemyUnit.name}";
+        yield return new WaitForSeconds(0.5f);
+        dialogueText.text = $"You can use this to heal later on!";
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(theBadger.BattleExit());
         yield break;
     }
 }

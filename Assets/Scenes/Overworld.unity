@@ -561,7 +561,7 @@ MonoBehaviour:
   playerHUD: {fileID: 1780250640}
   enemyHUD: {fileID: 629534649}
   UIParent: {fileID: 2121187926}
-  fleeFix: {fileID: 1030690276}
+  tempTarget: {fileID: 0}
   state: 0
 --- !u!212 &45994332
 SpriteRenderer:
@@ -6657,6 +6657,10 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: enemySpawns.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -8121,6 +8125,7 @@ MonoBehaviour:
   Loop:
   - now i say THIS on loop
   - eeehhehehehe
+  myClick: {fileID: 0}
 --- !u!1001 &781162272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13825,7 +13830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: radius
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: enemySpawns.Array.size
@@ -15625,6 +15630,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: enemySpawns.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -16353,7 +16362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1598307719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21666,6 +21675,10 @@ PrefabInstance:
     - target: {fileID: 1576511822910451739, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: m_Name
       value: SpawnRegionStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596942937352688828, guid: e9297126b75596343a32703355e3bfcc, type: 3}
+      propertyPath: m_Radius
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: radius
