@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueClass : MonoBehaviour
 {
-    public string[][] options;
+    public List<List<string>> options;
 
     // Change based on where Depressawn is (using his Prefab)
     public int customIndex;

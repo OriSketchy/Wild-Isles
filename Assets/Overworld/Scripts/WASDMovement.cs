@@ -65,7 +65,13 @@ public class WASDMovement : MonoBehaviour
 
         //if either not getting any  WASD input, or getting conflicted input play idle anim.
         //There is definitely a better way to do this, possibly getting the velocity of the player and if they're above a certain speed enable walk anim?
-        if(!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") || Input.GetKey("a")  && Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("d") || Input.GetKey("w")  && Input.GetKey("s") && Input.GetKey("a")    ||    Input.GetKey("w")  && Input.GetKey("d") && Input.GetKey("a")  ||  Input.GetKey("d")  && Input.GetKey("s") && Input.GetKey("a"))
+        if(!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d") ||
+            Input.GetKey("w") && Input.GetKey("s") ||
+            Input.GetKey("a") && Input.GetKey("d") ||
+            Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("d") ||
+            Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("a") ||
+            Input.GetKey("w") && Input.GetKey("d") && Input.GetKey("a") ||
+            Input.GetKey("d") && Input.GetKey("s") && Input.GetKey("a"))
         {
             animator.SetBool("Walk", false);
         }

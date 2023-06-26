@@ -8,13 +8,14 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
 {
     public Dialogue textBox;
     public DialogueClass thisDialogue;
+    public List<List<string>> dialogueGrid;
 
     private void Start()
     {
         AddPhysicsRaycaster();
     }
 
-    //Rasycaster checks what gameobject is clicked
+    //Raycaster checks what gameobject is clicked
     private void AddPhysicsRaycaster()
     {
         PhysicsRaycaster physicsRaycaster = FindObjectOfType<PhysicsRaycaster>();
@@ -31,7 +32,13 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
         if (eventData.pointerCurrentRaycast.gameObject.CompareTag("CanSpeak"))
         {
             // Send next dialogue to be read - loop dialogue when other options deplete
-            textBox.StartDialogue(thisDialogue);
+            textBox.StartDialogue(thisDialogue, dialogueGrid[thisDialogue.customIndex]);
+
+            // adds to unique NPC text index (basically "has spoken this line")
+            // all of this is handled according to each prefab
+            thisDialogue.customIndex += 1;
+            if (thisDialogue.customIndex > thisDialogue.maxIndex)
+                thisDialogue.customIndex = thisDialogue.maxIndex;
         }
     }
 }

@@ -154,6 +154,16 @@ public class BatlleSystem : MonoBehaviour
             if (playerUnit.currentSP > playerUnit.maxSP)
                 playerUnit.maxSP = playerUnit.currentSP;
 
+            // small scene if enemy has a drop
+            if (enemyUnit.items.Count > 0)
+            {
+                // weapon drop cutscene
+            }
+            else if (enemyUnit.itemConsumes.Count > 0)
+            {
+                // item drop cutscene
+            }
+
             Destroy(enemyUnit.gameObject);
 
             StartCoroutine(theBadger.BattleExit());
@@ -253,5 +263,15 @@ public class BatlleSystem : MonoBehaviour
         state = BattleState.FLEE;
         // end battle event. Skip stat gains and reset enemy HP, keep lowered SP (soft punish for fleeing)
         EndBattle();
+    }
+
+    // MINI CUTSCENES
+    IEnumerator WeaponPickup()
+    {
+        yield break;
+    }
+    IEnumerator ConsumePickup()
+    {
+        yield break;
     }
 }

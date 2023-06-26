@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DialogueDepresswan : DialogueClass
 {
-    public string[] Intro;
-    public string[] StartArea;
-    public string[] Forest;
-    public string[] Lake;
-    public string[] Beach;
+    public List<string> Intro = new List<string>();
+    public List<string> StartArea = new List<string>();
+    public List<string> Forest = new List<string>();
+    public List<string> Lake = new List<string>();
+    public List<string> Beach = new List<string>();
 
     private void Start()
     {

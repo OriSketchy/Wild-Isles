@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEditor.SearchService;
 using UnityEngine;
 
@@ -13,12 +14,15 @@ public class LoadBadger : MonoBehaviour
     public BatlleSystem battleBadger;
     public GameObject battleUI;
 
+    private CapsuleCollider playerCollider;
+
     //REMOVE BEFORE BUILD
     public MeshRenderer border;
 
     private void Start()
     {
         battleUI.SetActive(false);
+        playerCollider = player.GetComponent<CapsuleCollider>();
 
         //REMOVE BEFORE BUILD
         border.enabled = false;
@@ -27,9 +31,10 @@ public class LoadBadger : MonoBehaviour
     public IEnumerator BattleEntry(GameObject enemyEngaged, Vector3 midpoint, Transform angle)
     {
         // Be called when player collides with enemy
-        // paralyse them
+        // paralyse them & remove player collider
         player.GetComponent<WASDMovement>().enabled = false;
         enemyEngaged.GetComponent<EnemyMovement>().enabled = false;
+        playerCollider.enabled = false;
 
         // make them face each other
         player.transform.localScale = new Vector3(-1, 1, 1);
@@ -69,8 +74,9 @@ public class LoadBadger : MonoBehaviour
         battleBadger.gameObject.SetActive(false);
         battleUI.SetActive(false);
 
-        // Un-paralyse Duffin (BattleBadger manages enemy enabled)
+        // Restore Duffin (BattleBadger manages if enemy is alive)
         player.GetComponent<WASDMovement>().enabled = true;
+        playerCollider.enabled = false;
         yield break;
     }
 }

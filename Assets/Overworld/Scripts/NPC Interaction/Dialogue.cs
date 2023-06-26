@@ -8,7 +8,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
+    public List<string> lines;
     [Range(0f, 0.1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
     //[Range(0f, 2f)] public float mouseCooldown;
     
@@ -41,10 +41,10 @@ public class Dialogue : MonoBehaviour
          }
      }
 
-     public void StartDialogue(DialogueClass dialogueData)
+     public void StartDialogue(DialogueClass dialogueData, List<string> dialogueOptions)
      {
         currentNPC = dialogueData;
-        lines = dialogueData.options[dialogueData.customIndex];
+        lines = dialogueOptions;
         gameObject.SetActive(true);
         index = 0;
         StartCoroutine(TypeLine());
@@ -61,7 +61,7 @@ public class Dialogue : MonoBehaviour
 
      void NextLine()
      {
-         if(index < lines.Length - 1)
+         if(index < lines.Count - 1)
          {
              index++;
              textComponent.text = string.Empty;
@@ -69,12 +69,6 @@ public class Dialogue : MonoBehaviour
          }
          else
          {
-            // adds to unique NPC text index (basically "has spoken this line")
-            // all of this is handled according to each prefab
-            currentNPC.customIndex += 1;
-            if (currentNPC.customIndex > currentNPC.maxIndex)
-                currentNPC.customIndex = currentNPC.maxIndex;
-
             textComponent.text = string.Empty;
             gameObject.SetActive(false);
          }
