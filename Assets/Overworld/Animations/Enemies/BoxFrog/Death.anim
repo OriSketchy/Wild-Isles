@@ -5710,7 +5710,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BoxTop
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5722,7 +5722,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BoxTop
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5734,7 +5734,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BoxTop
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5746,7 +5746,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5758,7 +5758,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5770,115 +5770,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5962,6 +5854,78 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
     path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6
     classID: 4
     script: {fileID: 0}
@@ -5998,7 +5962,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6010,7 +5974,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6022,7 +5986,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top
+    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1/TongueReg_Middle/TongueReg_Tip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6034,7 +5998,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6046,7 +6010,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6058,31 +6022,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueRegular/TongueReg_Top/TongueReg_Top1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6094,7 +6034,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4/TongueExt_Tip
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BoxBottom/Tongue/TongueExt/TongueExt_Root/bone_2/bone_6/bone_3/bone_4
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BoxTop
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: BoxTop
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: BoxTop
     classID: 4
     script: {fileID: 0}
     flags: 0
