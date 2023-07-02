@@ -84,6 +84,22 @@ PrefabInstance:
       propertyPath: damageType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[0]
+      value: You pick up the blade!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[1]
+      value: This is sharp - could be used to damage thin enemies...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[2]
+      value: You add the blade to your inventory!
+      objectReference: {fileID: 0}
     - target: {fileID: 7009288411636069413, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
       propertyPath: m_Name
       value: WeaponStab Variant

@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
     //[Range(0f, 2f)] public float mouseCooldown;
     
     private int index = 0;
-    private DialogueClass currentNPC;
+    //private DialogueClass currentNPC;
     private CapsuleCollider playerCollider;
     private DetectClick selectedNPC;
 
@@ -22,11 +22,6 @@ public class Dialogue : MonoBehaviour
         // Clears box
         textComponent.text = string.Empty;
     }
-
-    //void Awake()
-    //{
-    //    gameObject.SetActive(false);
-    //}
 
     void Update()
      {
@@ -44,23 +39,37 @@ public class Dialogue : MonoBehaviour
          }
      }
 
-     public void StartDialogue(DialogueClass dialogueData, List<string> dialogueOptions, CapsuleCollider player, DetectClick NPC)
+    public void StartDialogue(List<string> dialogueOptions, CapsuleCollider player, DetectClick NPC)
      {
         playerCollider = player;
         selectedNPC = NPC;
         // Disables player collider, sets data from clicked NPC, then starts running through the selected array of lines
         playerCollider.enabled = false;
-        // Disables player movement and the ability to re-click on Davide
+        // Disables player movement and the ability to re-click on an NPC
         playerCollider.gameObject.GetComponent<WASDMovement>().enabled = false;
         selectedNPC.enabled = false;
-        currentNPC = dialogueData;
+        //currentNPC = dialogueData;
         lines = dialogueOptions;
         gameObject.SetActive(true);
         index = 0;
         StartCoroutine(TypeLine());
      }
+    public void StartDialoguePickup(List<string> dialogueOptions, CapsuleCollider player)
+    {
+        playerCollider = player;
+        // Disables player collider, sets data from clicked NPC, then starts running through the selected array of lines
+        playerCollider.enabled = false;
+        // Disables player movement and resets animator
+        playerCollider.gameObject.GetComponent<WASDMovement>().enabled = false;
+        playerCollider.transform.GetChild(0).GetComponent<Animator>().speed = 0;
 
-     IEnumerator TypeLine()
+        lines = dialogueOptions;
+        gameObject.SetActive(true);
+        index = 0;
+        StartCoroutine(TypeLine());
+    }
+
+    IEnumerator TypeLine()
      {
          foreach (char c in lines[index].ToCharArray())
          {
@@ -79,11 +88,13 @@ public class Dialogue : MonoBehaviour
          }
          else
          {
+            // resets everything
             textComponent.text = string.Empty;
             gameObject.SetActive(false);
             playerCollider.enabled = true;
             playerCollider.gameObject.GetComponent<WASDMovement>().enabled = true;
-            selectedNPC.enabled = true;
+            playerCollider.transform.GetChild(0).GetComponent<Animator>().speed = 1;
+            try { selectedNPC.enabled = true; } catch { }
         }
      }
  }

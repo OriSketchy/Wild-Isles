@@ -84,6 +84,22 @@ PrefabInstance:
       propertyPath: damageType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[0]
+      value: You pick up the hair pin!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[1]
+      value: Looks like it could be used to grab something with moving parts...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487333362597598983, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
+      propertyPath: info.Array.data[2]
+      value: You drop the pin in your inventory!
+      objectReference: {fileID: 0}
     - target: {fileID: 7009288411636069413, guid: 2dd8df3e4af264b478f143af4f0ec8a6, type: 3}
       propertyPath: m_Name
       value: WeaponGrab Variant

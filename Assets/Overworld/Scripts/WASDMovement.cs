@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class WASDMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class WASDMovement : MonoBehaviour
     public Unit self;
 
     public Canvas UIParent;
+    public Dialogue textBox;
 
     private void Start()
     {
@@ -110,16 +112,20 @@ public class WASDMovement : MonoBehaviour
         else if (other.CompareTag("PickupConsume"))
         {
             // add to rudimentary inventory, then disables its overworld asset
-            self.itemConsumes.Add(other.GetComponent<ItemPickup>());
+            var item = other.GetComponent<ItemPickup>();
+            self.itemConsumes.Add(item);
             other.gameObject.SetActive(false);
-            UIParent.BroadcastMessage("RefreshButton");
+            //UIParent.BroadcastMessage("RefreshButton");
+            // send dialogue message
+            textBox.StartDialoguePickup(item.info, this.GetComponent<CapsuleCollider>());
         }
         else if (other.CompareTag("PickupWeapon"))
         {
             WeaponPickup weapon = other.GetComponent<WeaponPickup>();
             self.items[weapon.damageType-1] = weapon;
             other.gameObject.SetActive(false);
-            UIParent.BroadcastMessage("RefreshButton");
+            //UIParent.BroadcastMessage("RefreshButton");
+            textBox.StartDialoguePickup(weapon.info, this.GetComponent<CapsuleCollider>());
         }
         else if (other.CompareTag("SpawnRegion"))
         {

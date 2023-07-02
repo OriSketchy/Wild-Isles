@@ -8,4 +8,6 @@ public class WeaponPickup : MonoBehaviour
     public int damageType;
     public int damageMod;
     public Sprite texture;
+
+    public List<string> info;
 }

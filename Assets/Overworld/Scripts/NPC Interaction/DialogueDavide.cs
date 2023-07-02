@@ -9,8 +9,6 @@ public class DialogueDavide : DialogueClass
     public List<string> Intro = new List<string>();
     public List<string> Guide = new List<string>();
     public List<string> Loop = new List<string>();
-
-    public DetectClick myClick;
     //public string[][] options;
 
     // Change based on where Depresswan is (if handling Depresswan)

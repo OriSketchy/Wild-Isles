@@ -22,6 +22,8 @@ public class BatlleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     public Transform UIParent;
+    public Transform UIAttackParent;
+    public Transform UIItemParent;
     public GameObject tempTarget;
     public Camera mainCamera;
 
@@ -70,7 +72,6 @@ public class BatlleSystem : MonoBehaviour
         }
         // delaying coroutine so player gets a chance to read. May make this wait skippable with input
         yield return new WaitForSeconds(3f);
-
         // moves to next scene
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -89,7 +90,7 @@ public class BatlleSystem : MonoBehaviour
         // damages the enemy and checks if dead
         bool isDead = enemyUnit.TakeDamage(playerUnit.damageBase, damType, damMod);
         // updates enemy hp and throws dialogue
-        enemyHUD.SetHP(enemyUnit.currentHP);
+        enemyHUD.UpdateHUD(enemyUnit);
         // end of turn
         // yield return is here so player can't spam click buttons
         if(isDead) 
@@ -110,7 +111,7 @@ public class BatlleSystem : MonoBehaviour
         UIParent.BroadcastMessage("ButtonDisable");
         // placeholder amount - change to inventory item
         playerUnit.HealUnit(itemSlot);
-        playerHUD.SetHP(playerUnit.currentHP);
+        playerHUD.UpdateHUD(playerUnit);
         playerUnit.itemConsumes.RemoveAt(itemSlot);
         yield return new WaitForSeconds(2f);
         state = BattleState.ENEMYTURN;
@@ -122,9 +123,10 @@ public class BatlleSystem : MonoBehaviour
         // same pattern as player turn, just automatically attacks
         dialogueText.text = enemyUnit.unitName + " attacks you.";
         yield return new WaitForSeconds(1f);
-        enemyUnit.currentSP -= 5;
+        enemyUnit.currentSP -= 2;
         bool isDead = playerUnit.TakeDamage(enemyUnit.damageBase, 4);
-        playerHUD.SetHP(playerUnit.currentHP);
+        playerHUD.UpdateHUD(playerUnit);
+        enemyHUD.UpdateHUD(enemyUnit);
         yield return new WaitForSeconds(1f);
         if(isDead)
         {
@@ -198,6 +200,8 @@ public class BatlleSystem : MonoBehaviour
     {
         // use this for "back" buttons
         // silly little function
+
+        // EN02072023 - WHY DOES THIS EXIST WHY ISN'T THIS IN A SINGLE FUNCTION HELLO???
         StartCoroutine(ResetsButtons());
     }
     public IEnumerator ResetsButtons()
@@ -214,6 +218,7 @@ public class BatlleSystem : MonoBehaviour
             return;
         UIParent.GetChild(1).gameObject.SetActive(false);
         UIParent.GetChild(3).gameObject.SetActive(true);
+        UIParent.BroadcastMessage("RefreshButton");
     }
     public void OnItemParent() 
     {
@@ -221,8 +226,14 @@ public class BatlleSystem : MonoBehaviour
             return;
 
         UIParent.GetChild(1).gameObject.SetActive(false);
-        GameObject itemButtons = UIParent.GetChild(4).gameObject;
-        itemButtons.SetActive(true);
+
+        // Originally looked like this. Local variable is only referenced once - significance unknown.
+        //GameObject itemButtons = UIParent.GetChild(4).gameObject;
+        //itemButtons.SetActive(true);
+
+        UIParent.GetChild(4).gameObject.SetActive(true);
+
+        UIParent.BroadcastMessage("RefreshButton");
     }
     public void OnAttackButton(int damType)
     {
@@ -240,7 +251,7 @@ public class BatlleSystem : MonoBehaviour
             }
             else if(playerUnit.items[damType - 4] != null)
             {
-                dialogueText.text = $"You use 10 Scrap to attack the enemy with {playerUnit.items[damType - 4].name}!";
+                dialogueText.text = $"You use 10 Scrap to attack the enemy with {playerUnit.items[damType - 4].itemName}!";
                 StartCoroutine(PlayerAttack(playerUnit.items[damType-4].damageMod,
                     playerUnit.items[damType - 4].damageType));
             }
@@ -251,13 +262,14 @@ public class BatlleSystem : MonoBehaviour
             }
 
             playerUnit.currentSP -= 10;
+            playerHUD.UpdateHUD(playerUnit);
         }
     }
     public void OnItemButton(int itemSlot)
     {
         ResetButtons();
         // dialogue text is placeholder
-        dialogueText.text = $"You eat your {playerUnit.itemConsumes[itemSlot].name} and restore HP!";
+        dialogueText.text = $"You eat your {playerUnit.itemConsumes[itemSlot].itemName} and restore HP!";
         StartCoroutine(PlayerHeal(itemSlot));
     }
     public void OnFleeButton() 

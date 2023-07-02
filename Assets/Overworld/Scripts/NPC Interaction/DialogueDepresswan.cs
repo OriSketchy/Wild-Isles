@@ -12,10 +12,8 @@ public class DialogueDepresswan : DialogueClass
 
     private void Start()
     {
-        options[0] = Intro;
-        options[1] = StartArea;
-        options[2] = Forest;
-        options[3] = Lake;
-        options[4] = Beach;
+        options = new List<List<string>>() { Intro, StartArea, Forest, Lake, Beach };
+
+        myClick.dialogueGrid = options;
     }
 }

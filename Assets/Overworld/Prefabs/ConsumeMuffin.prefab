@@ -50,6 +50,9 @@ MonoBehaviour:
   itemName: Sand Eel Muffin
   healAmount: 10
   texture: {fileID: 21300000, guid: da6000863d87e7746b997bee3b3f90c2, type: 3}
+  info:
+  - Your stomach growls as you pick up the muffin.
+  - You add it to your inventory!
 --- !u!212 &5360749319718332218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -114,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a77161de3ae1848ad517cc0729adc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!135 &7707880536831641336
 SphereCollider:
   m_ObjectHideFlags: 0

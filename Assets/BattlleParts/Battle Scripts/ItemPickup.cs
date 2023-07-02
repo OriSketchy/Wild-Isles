@@ -7,4 +7,6 @@ public class ItemPickup : MonoBehaviour
     public string itemName;
     public int healAmount;
     public Sprite texture;
+
+    public List<string> info;
 }

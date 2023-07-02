@@ -9,6 +9,7 @@ public class BattleHUD : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
     public Slider hpSlider;
+    public Slider spSlider;
 
     // fetching data for HUD text
     public void SetHUD(Unit unit)
@@ -16,12 +17,17 @@ public class BattleHUD : MonoBehaviour
         nameText.text = unit.unitName;
         // BALANCE/ADJUST THIS
         levelText.text = "LVL: " + (Mathf.Round((float)unit.unitXP / 100) * 100);
+
         hpSlider.maxValue = unit.maxHP;
         hpSlider.value = unit.currentHP;
+
+        spSlider.maxValue = unit.maxSP;
+        spSlider.value = unit.currentSP;
     }
     // update HP
-    public void SetHP(int hp) 
+    public void UpdateHUD(Unit unit) 
     { 
-        hpSlider.value = hp;
+        hpSlider.value = unit.currentHP;
+        spSlider.value = unit.currentSP;
     }
 }
