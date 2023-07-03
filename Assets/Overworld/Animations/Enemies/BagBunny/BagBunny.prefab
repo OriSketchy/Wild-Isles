@@ -218,7 +218,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 7441059451553400643}
   m_BoneTransforms:
-  - {fileID: 0}
+  - {fileID: 7441059451553400643}
+  - {fileID: 1379303677318720133}
+  - {fileID: 3143250069070528510}
+  - {fileID: 1014983564829494697}
+  - {fileID: 7044720395369666665}
+  - {fileID: 2472562686339475343}
   m_Bounds:
     m_Center: {x: 2.6515145, y: -8.588318, z: 0}
     m_Extent: {x: 1.5688376, y: 1.8913248, z: 0}
