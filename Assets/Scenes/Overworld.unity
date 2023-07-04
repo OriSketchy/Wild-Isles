@@ -8347,7 +8347,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1998404626888976951, guid: 1e5ead226c14a1941bb8db3b3d137e33, type: 3}
       propertyPath: m_Name
-      value: EnvironmentAsset
+      value: GrandOak
       objectReference: {fileID: 0}
     - target: {fileID: 5527038470239507319, guid: 1e5ead226c14a1941bb8db3b3d137e33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21976,7 +21976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4596942937352688828, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: m_Radius
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6552350620837779870, guid: e9297126b75596343a32703355e3bfcc, type: 3}
       propertyPath: radius
