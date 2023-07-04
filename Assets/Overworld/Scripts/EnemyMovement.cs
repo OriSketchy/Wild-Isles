@@ -84,17 +84,17 @@ public class EnemyMovement : MonoBehaviour
         transform.position += direction.normalized * speed * Time.fixedDeltaTime; 
         
         //if getting any WASD input play walk animation
-        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        if (inputNum < 2 && inputNum > 0)
         {
             // FIX
-            //animator.SetBool("Walk", true);
+            animator.SetBool("Walk", true);
         }
 
         //if either not getting any  WASD input, or getting conflicted input play idle anim.
         //There is definitely a better way to do this, possibly getting the velocity of the player and if they're above a certain speed enable walk anim?
-        if(!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") || Input.GetKey("a")  && Input.GetKey("d")    ||     Input.GetKey("w") && Input.GetKey("s") && Input.GetKey("d") || Input.GetKey("w")  && Input.GetKey("s") && Input.GetKey("a")    ||    Input.GetKey("w")  && Input.GetKey("d") && Input.GetKey("a")  ||  Input.GetKey("d")  && Input.GetKey("s") && Input.GetKey("a"))
+        else
         {
-            //animator.SetBool("Walk", false);
+            animator.SetBool("Walk", false);
         }
     }
 

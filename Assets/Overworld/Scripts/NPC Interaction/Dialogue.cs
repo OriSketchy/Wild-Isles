@@ -95,6 +95,7 @@ public class Dialogue : MonoBehaviour
             playerCollider.gameObject.GetComponent<WASDMovement>().enabled = true;
             playerCollider.transform.GetChild(0).GetComponent<Animator>().speed = 1;
             try { selectedNPC.enabled = true; } catch { }
+            selectedNPC.GetComponentInChildren<Animator>().SetBool("Speak", false);
         }
      }
  }

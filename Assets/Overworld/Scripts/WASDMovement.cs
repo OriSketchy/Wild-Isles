@@ -64,7 +64,7 @@ public class WASDMovement : MonoBehaviour
         //if getting any WASD input play walk animation
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
-            animator.SetBool("Walk", true);
+            animator.SetBool("DuffinWalk", true);
         }
 
         //if either not getting any  WASD input, or getting conflicted input play idle anim.
@@ -77,7 +77,7 @@ public class WASDMovement : MonoBehaviour
             Input.GetKey("w") && Input.GetKey("d") && Input.GetKey("a") ||
             Input.GetKey("d") && Input.GetKey("s") && Input.GetKey("a"))
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool("DuffinWalk", false);
         }
     }
 

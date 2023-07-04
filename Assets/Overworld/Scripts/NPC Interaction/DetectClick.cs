@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DetectClick : MonoBehaviour, IPointerDownHandler
 {
+    Animator animator;
     public Dialogue textBox;
     public DialogueClass thisDialogue;
     public List<List<string>> dialogueGrid;
@@ -14,6 +15,7 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         AddPhysicsRaycaster();
+        animator = GetComponentInChildren<Animator>();
     }
 
     //Raycaster checks what gameobject is clicked
@@ -34,6 +36,8 @@ public class DetectClick : MonoBehaviour, IPointerDownHandler
         {
             // Send next dialogue to be read - loop dialogue when other options deplete
             textBox.StartDialogue(dialogueGrid[thisDialogue.customIndex], player, this);
+
+            animator.SetBool("Speak", true);
 
             // adds to unique NPC text index (basically "has spoken this line")
             // all of this is handled according to each prefab
