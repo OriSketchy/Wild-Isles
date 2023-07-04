@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 998024465604634547, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1041006686331931382, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_RootOrder
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1060854254503535887, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060854254503535887, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayerID
@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575950360980746709, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2575950360980746709, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayerID
@@ -238,15 +238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175794714814046946, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3917112524006884966, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.04
+      value: -0.168
       objectReference: {fileID: 0}
     - target: {fileID: 3981904277468121628, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4395967506581209199, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayer
@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395967506581209199, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4395967506581209199, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayerID
@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786533429281426000, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4786533429281426000, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayerID
@@ -274,11 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6514649289113698543, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6945879772460811233, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7288239736148572888, guid: b21236474b6f4cd4797a13d59c25bc1b, type: 3}
       propertyPath: m_SortingLayer
@@ -22161,6 +22161,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Depresswan
       objectReference: {fileID: 0}
+    - target: {fileID: 2274920680183489727, guid: 2c34c1fc5869a1c42a0aa0de4651b574, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672288909556574400, guid: 2c34c1fc5869a1c42a0aa0de4651b574, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6459300264376221682, guid: 2c34c1fc5869a1c42a0aa0de4651b574, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -22213,6 +22221,10 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 139520036}
+    - target: {fileID: 8768118740143373403, guid: 2c34c1fc5869a1c42a0aa0de4651b574, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
