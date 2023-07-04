@@ -37,6 +37,7 @@ public class EnemyMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         myCollider = this.GetComponent<SphereCollider>();
         StartCoroutine(RandMove());
+        this.transform.localScale = new Vector3(1, 1, 1);
     }
 
     void FixedUpdate()
@@ -84,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
         transform.position += direction.normalized * speed * Time.fixedDeltaTime; 
         
         //if getting any WASD input play walk animation
-        if (inputNum < 2 && inputNum > 0)
+        if (inputNum < 3 && inputNum > 0)
         {
             // FIX
             animator.SetBool("Walk", true);

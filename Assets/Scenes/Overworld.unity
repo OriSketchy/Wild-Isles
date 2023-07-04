@@ -22274,6 +22274,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Davide
       objectReference: {fileID: 0}
+    - target: {fileID: 4668807066429761166, guid: ead99ead2041df34f98ea2dbd8d8adc4, type: 3}
+      propertyPath: m_Height
+      value: 3.530898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668807066429761166, guid: ead99ead2041df34f98ea2dbd8d8adc4, type: 3}
+      propertyPath: m_Radius
+      value: 1.2771826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668807066429761166, guid: ead99ead2041df34f98ea2dbd8d8adc4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.13268948
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668807066429761166, guid: ead99ead2041df34f98ea2dbd8d8adc4, type: 3}
+      propertyPath: m_Center.y
+      value: -0.22710896
+      objectReference: {fileID: 0}
     - target: {fileID: 7357545532684327093, guid: ead99ead2041df34f98ea2dbd8d8adc4, type: 3}
       propertyPath: player
       value: 
@@ -22467,6 +22483,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1407253250725296466, guid: 9d4800ac98b155e468ff0717f4581cf4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1446891998778344647, guid: 9d4800ac98b155e468ff0717f4581cf4, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -22533,7 +22553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2441438134983698589, guid: 9d4800ac98b155e468ff0717f4581cf4, type: 3}
       propertyPath: speed
-      value: 10
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 2441438134983698589, guid: 9d4800ac98b155e468ff0717f4581cf4, type: 3}
       propertyPath: textBox

@@ -96,7 +96,7 @@ public class WASDMovement : MonoBehaviour
 
             Vector3 midpoint = (enemy.position + this.transform.position) * 0.5f;
 
-            animator.SetBool("Walk", false);
+            animator.SetBool("DuffinWalk", false);
 
             StartCoroutine(theBadger.BattleEntry(enemy.gameObject, midpoint, angle));
         }
