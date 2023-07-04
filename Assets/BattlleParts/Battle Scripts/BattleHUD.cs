@@ -16,7 +16,7 @@ public class BattleHUD : MonoBehaviour
     {
         nameText.text = unit.unitName;
         // BALANCE/ADJUST THIS
-        levelText.text = "LVL: " + (Mathf.Round((float)unit.unitXP / 100) * 100);
+        levelText.text = "LVL: " + Mathf.Round((float)unit.unitXP / 100);
 
         hpSlider.maxValue = unit.maxHP;
         hpSlider.value = unit.currentHP;

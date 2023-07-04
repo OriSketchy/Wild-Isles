@@ -31,10 +31,15 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(float dmg, int dmgType, int damMod = 0)
     {
+        // adds modifier
         dmg += damMod;
+
+        // tweaks XP bonus
+        dmg += dmg * (unitXP / 1024);
 
         // cleans scrap attack (all bonuses are done externally)
         if (dmgType >= 4) { dmgType -= 3; }
+
         // checks weakness with cleaned damage type
         if (dmgType == damageWeakness) dmg = Mathf.Ceil(dmg * 1.5f);
 

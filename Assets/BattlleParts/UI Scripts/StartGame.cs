@@ -21,6 +21,7 @@ public class StartGame : MonoBehaviour
         {
             myButton.interactable = true;
             errorText.SetActive(false);
+            chosenName = nameBox.text;
         }
         else
         {

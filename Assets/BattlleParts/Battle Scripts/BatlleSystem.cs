@@ -83,6 +83,7 @@ public class BatlleSystem : MonoBehaviour
         UIParent.BroadcastMessage("ButtonEnable");
         state = BattleState.PLAYERTURN;
         dialogueText.text = "Choose your action!";
+        turnCount++;
     }
     IEnumerator PlayerAttack(int damType, int damMod = 0)
     {
@@ -138,6 +139,7 @@ public class BatlleSystem : MonoBehaviour
             state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
+        turnCount++;
     }
     // BATTLE WIN/LOSE STATE
     void EndBattle()
@@ -251,7 +253,7 @@ public class BatlleSystem : MonoBehaviour
             }
             else if(playerUnit.items[damType - 4] != null)
             {
-                dialogueText.text = $"You use 10 Scrap to attack the enemy with {playerUnit.items[damType - 4].itemName}!";
+                dialogueText.text = $"You use Scrap to attack the enemy with {playerUnit.items[damType - 4].itemName}!";
                 StartCoroutine(PlayerAttack(playerUnit.items[damType-4].damageMod,
                     playerUnit.items[damType - 4].damageType));
             }

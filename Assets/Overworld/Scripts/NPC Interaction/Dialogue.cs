@@ -11,6 +11,8 @@ public class Dialogue : MonoBehaviour
     public List<string> lines;
     [Range(0f, 0.1f)] public float textSpeed;  //the lower the textSpeed the faster text moves
     //[Range(0f, 2f)] public float mouseCooldown;
+
+    public GameObject counter;
     
     private int index = 0;
     //private DialogueClass currentNPC;
@@ -66,6 +68,7 @@ public class Dialogue : MonoBehaviour
         lines = dialogueOptions;
         gameObject.SetActive(true);
         index = 0;
+        counter.SetActive(false);
         StartCoroutine(TypeLine());
     }
 
@@ -89,6 +92,7 @@ public class Dialogue : MonoBehaviour
          else
          {
             // resets everything
+            counter.SetActive(true);
             textComponent.text = string.Empty;
             gameObject.SetActive(false);
             playerCollider.enabled = true;

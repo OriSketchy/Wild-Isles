@@ -32,15 +32,6 @@ public class LoadBadger : MonoBehaviour
         battleUI.SetActive(false);
         playerCollider = player.GetComponent<CapsuleCollider>();
 
-        try
-        {
-            PlayerPrefs.GetString("name");
-        }
-        catch
-        {
-            PlayerPrefs.SetString("name", "beenis");
-        }
-
         //REMOVE BEFORE BUILD
         border.enabled = false;
     }
@@ -122,7 +113,7 @@ public class LoadBadger : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("MenuLost");
+            SceneManager.LoadScene("MenuFail");
         }
         yield break;
     }
