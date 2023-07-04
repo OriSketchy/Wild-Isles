@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // List of menu states
 public enum MenuState { MAIN, PLAY, OPTIONS, CREDITS }
@@ -11,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject playParent;
     public GameObject optionsParent;
     public GameObject creditsParent;
+    public StartGame inputData;
 
     private MenuState state;
     public void OnExitButton()
@@ -25,6 +27,14 @@ public class MainMenu : MonoBehaviour
         keyAssetParent.SetActive(false);
         playParent.SetActive(true);
         state = MenuState.PLAY;
+    }
+    public void StartGame()
+    {
+        // start game. use PlayerPrefs to save data
+        PlayerPrefs.SetString("name", inputData.chosenName);
+        PlayerPrefs.SetInt("score", 0);
+
+        SceneManager.LoadScene("Overworld");
     }
     public void OnOptionsButton()
     {

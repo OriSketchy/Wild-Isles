@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuMain.unity
+    guid: 07e16f0c7ce88bc459284801bdf5c87f
+  - enabled: 1
+    path: Assets/Scenes/MenuFail.unity
+    guid: b7ef293bc2ac5394cadb797fe086635b
+  - enabled: 1
+    path: Assets/Scenes/MenuWon.unity
+    guid: 7ebe0e71f264d8b42aba3baaebcb9fe2
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TheBadgerZone.unity
+    guid: c6c8b742f0164e94489b482b0e5391e5
   m_configObjects: {}

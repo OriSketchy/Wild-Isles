@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadBadger : MonoBehaviour
 {
@@ -77,6 +78,19 @@ public class LoadBadger : MonoBehaviour
         // Restore Duffin (BattleBadger manages if enemy is alive)
         player.GetComponent<WASDMovement>().enabled = true;
         playerCollider.enabled = true;
+        yield break;
+    }
+    public IEnumerator GameEnd(bool victory)
+    {
+        PlayerPrefs.SetInt("score", player.GetComponent<Unit>().unitXP);
+        if (victory)
+        {
+            SceneManager.LoadScene("MenuWon");
+        }
+        else
+        {
+            SceneManager.LoadScene("MenuLost");
+        }
         yield break;
     }
 }

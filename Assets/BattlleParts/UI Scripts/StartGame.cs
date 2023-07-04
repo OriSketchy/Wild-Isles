@@ -10,6 +10,8 @@ public class StartGame : MonoBehaviour
     public TMP_InputField nameBox;
     public Button myButton;
     public GameObject errorText;
+
+    public string chosenName;
     void FixedUpdate()
     {
         // check for fail conditions: empty string, non-letter/number characters, over 8 letters
