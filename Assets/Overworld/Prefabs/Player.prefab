@@ -64,6 +64,8 @@ MonoBehaviour:
   speed: 7.09
   theBadger: {fileID: 0}
   self: {fileID: 9202119130814924534}
+  UIParent: {fileID: 0}
+  textBox: {fileID: 0}
 --- !u!114 &9202119130814924534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +98,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2156121173423857323}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

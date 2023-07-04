@@ -6,7 +6,9 @@ public class spawnRegion : MonoBehaviour
 {
     [SerializeField] List<Unit> enemySpawns = new List<Unit>();
     [SerializeField] int radius;
+    [SerializeField] int customCount;
     SphereCollider myCollider;
+    public LoadBadger theBadger;
 
     public void Spawn()
     {
@@ -20,6 +22,8 @@ public class spawnRegion : MonoBehaviour
         }
         // disables spawn entirely (use for tracking spawn success)
         this.gameObject.SetActive(false);
+
+        theBadger.UpdateCounter(customCount);
     }
     // function that returns a random coordinate each time it's called (disregard Y axis)
     public static Vector3 RandomPointInBounds(Bounds bounds)

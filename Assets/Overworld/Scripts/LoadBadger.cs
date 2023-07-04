@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEditor.SearchService;
@@ -15,6 +16,12 @@ public class LoadBadger : MonoBehaviour
     public BatlleSystem battleBadger;
     public GameObject battleUI;
 
+    public TextMeshProUGUI counterCurrent;
+    public TextMeshProUGUI counterTotal;
+
+    private int enemiesDefeated;
+    private int enemiesTotal;
+
     private CapsuleCollider playerCollider;
 
     //REMOVE BEFORE BUILD
@@ -25,10 +32,25 @@ public class LoadBadger : MonoBehaviour
         battleUI.SetActive(false);
         playerCollider = player.GetComponent<CapsuleCollider>();
 
+        try
+        {
+            PlayerPrefs.GetString("name");
+        }
+        catch
+        {
+            PlayerPrefs.SetString("name", "beenis");
+        }
+
         //REMOVE BEFORE BUILD
         border.enabled = false;
     }
+    public void UpdateCounter(int increaseTotal = 0)
+    {
+        enemiesTotal += increaseTotal;
 
+        counterCurrent.text = $"{enemiesDefeated}";
+        counterTotal.text = $"{enemiesTotal}";
+    }
     public IEnumerator BattleEntry(GameObject enemyEngaged, Vector3 midpoint, Transform angle)
     {
         // Be called when player collides with enemy
@@ -75,9 +97,20 @@ public class LoadBadger : MonoBehaviour
         battleBadger.gameObject.SetActive(false);
         battleUI.SetActive(false);
 
-        // Restore Duffin (BattleBadger manages if enemy is alive)
-        player.GetComponent<WASDMovement>().enabled = true;
-        playerCollider.enabled = true;
+        if(battleBadger.state == BattleState.LOST)
+        {
+            // ends battle to fail screen
+            StartCoroutine(GameEnd(false));
+        }
+        else if(battleBadger.state == BattleState.WON)
+        {
+            // Restore Duffin (BattleBadger manages if enemy is alive)
+            player.GetComponent<WASDMovement>().enabled = true;
+            playerCollider.enabled = true;
+            // Counter handling
+            enemiesDefeated++;
+            UpdateCounter();
+        }
         yield break;
     }
     public IEnumerator GameEnd(bool victory)

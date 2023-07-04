@@ -178,7 +178,7 @@ public class BatlleSystem : MonoBehaviour
         {
             dialogueText.text = "You are defeated.";
 
-            Destroy(playerUnit.gameObject);
+            //Destroy(playerUnit.gameObject);
 
             StartCoroutine(theBadger.BattleExit());
         }
