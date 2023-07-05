@@ -243,7 +243,29 @@ public class BatlleSystem : MonoBehaviour
         // SP buttons will do damage based on current selected weapon (set defaults for demo)
         ResetButtons();
         // For now the SP attacks will share the same damage bonus
-        if (damType <= 3) { StartCoroutine(PlayerAttack(damType)); }
+        if (damType <= 3) 
+        { 
+            StartCoroutine(PlayerAttack(damType));
+            
+            ////move this over to a duffin script and reference this script to get the damtype 
+            //if(damType == 1)
+            //{
+            //    Debug.Log("Stab");
+            //    duffinAnim.SetBool("DuffinStab", true);
+            //}
+
+            //if (damType == 2)
+            //{
+            //    Debug.Log("Grab");
+            //    duffinAnim.SetBool("DuffinGrab", true);
+            //}
+
+            //if (damType == 3)
+            //{
+            //    Debug.Log("Thwab");
+            //    duffinAnim.SetBool("DuffinThwab", true);
+            //}
+        }
         else if(damType > 3) 
         {
             // Dialogue text is placeholder
