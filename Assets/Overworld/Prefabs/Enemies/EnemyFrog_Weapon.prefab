@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1113817110826843150, guid: 3b31a64829791a84ab041bbdebc6cdbd, type: 3}
       propertyPath: m_Name
-      value: EnemyFrog Variant Variant
+      value: EnemyFrog_Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 6459963822109369289, guid: 3b31a64829791a84ab041bbdebc6cdbd, type: 3}
       propertyPath: m_RootOrder
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 8523987888717873416, guid: 3b31a64829791a84ab041bbdebc6cdbd, type: 3}
       propertyPath: items.Array.data[0]
       value: 
-      objectReference: {fileID: 1549056954327224761, guid: 346b29f9debdd68488c97791fc860287, type: 3}
+      objectReference: {fileID: 2704239091141048750, guid: bdd35ae87e6f50b4486c8ef9d25bb8f2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

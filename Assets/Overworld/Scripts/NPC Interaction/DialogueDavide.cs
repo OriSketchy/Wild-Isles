@@ -1,8 +1,8 @@
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
-using System.Collections;
+//using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+//using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using UnityEngine;
+//using System.Xml;
+//using UnityEngine;
 
 public class DialogueDavide : DialogueClass
 {

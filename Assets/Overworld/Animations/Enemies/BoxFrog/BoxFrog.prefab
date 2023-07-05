@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928319093097894480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917236085073719739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TongueReg_Top1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6805724052793927075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PupilR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 27640677877003513}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TongueReg_Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2933498490066153758}
   - component: {fileID: 2963548830109050417}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxFrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,8 +156,9 @@ Transform:
   m_Children:
   - {fileID: 6324626591317451922}
   - {fileID: 7814863950483182869}
+  - {fileID: 639556052603445212}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2963548830109050417
 Animator:
@@ -189,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1102029485973450255}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4384909762069977851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TongueReg_Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8293123086125723300}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PupilL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7814863950483182869}
   - component: {fileID: 5623784819910918375}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2767789614858202919}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TongueReg_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 82315423239979595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tongue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778094363282460994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +467,7 @@ GameObject:
   - component: {fileID: 2799826898479454784}
   - component: {fileID: 8131912013991387355}
   - component: {fileID: 5723519832571801372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757590162307967623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +607,7 @@ GameObject:
   - component: {fileID: 6324626591317451922}
   - component: {fileID: 7604996991250884937}
   - component: {fileID: 3488715397176328348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +713,7 @@ GameObject:
   - component: {fileID: 6313049692211804324}
   - component: {fileID: 4984262870130698791}
   - component: {fileID: 7997945729439697356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pupils
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +821,7 @@ GameObject:
   - component: {fileID: 4786000065133775023}
   - component: {fileID: 8889403882530327189}
   - component: {fileID: 3678359600482992303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TongueRegular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +930,7 @@ GameObject:
   - component: {fileID: 6138631068468325561}
   - component: {fileID: 5501366680896189719}
   - component: {fileID: 2373870500046528850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,3 +1027,73 @@ MonoBehaviour:
     m_Extent: {x: 0.44577718, y: 0.35908574, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 1
+--- !u!1001 &130450072660273223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2933498490066153758}
+    m_Modifications:
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.048797607
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3288765
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713263275219887062, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_Name
+      value: FrogCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093367264203663140, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 2fef7556f8a3ffb4d98d1f3d5852da61, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+--- !u!4 &639556052603445212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 661848211148240795, guid: 27a8ffebef663ef4c98b6cc2e729f8ac, type: 3}
+  m_PrefabInstance: {fileID: 130450072660273223}
+  m_PrefabAsset: {fileID: 0}

@@ -1,9 +1,9 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
+//using JetBrains.Annotations;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
+//using UnityEngine.UIElements;
+//using static UnityEditor.Progress;
 
 public class WASDMovement : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class WASDMovement : MonoBehaviour
 
     public LoadBadger theBadger;
     public Unit self;
+    public GameObject selfProjection;
 
     public Canvas UIParent;
     public Dialogue textBox;
@@ -33,14 +34,14 @@ public class WASDMovement : MonoBehaviour
             direction += Vector3.right;
 
             // TEMP FIX
-            this.transform.localScale = new Vector3(-1, 1, 1);
+            selfProjection.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         }
         if (Input.GetKey("a"))
         {   
             direction += Vector3.left;
 
             // TEMP FIX
-            this.transform.localScale = new Vector3(1, 1, 1);
+            selfProjection.transform.localScale = new Vector3(-0.75f, 0.75f, 0.75f);
         }
         if (Input.GetKey("w"))
         {

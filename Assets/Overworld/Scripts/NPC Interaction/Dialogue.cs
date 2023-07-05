@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+//using UnityEngine.EventSystems;
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
+//using Unity.PlasticSCM.Editor.WebApi;
 
 public class Dialogue : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class Dialogue : MonoBehaviour
     //[Range(0f, 2f)] public float mouseCooldown;
 
     public GameObject counter;
+    public Dukebox dukebox;
     
     private int index = 0;
     //private DialogueClass currentNPC;
@@ -45,13 +46,19 @@ public class Dialogue : MonoBehaviour
      {
         playerCollider = player;
         selectedNPC = NPC;
+
         // Disables player collider, sets data from clicked NPC, then starts running through the selected array of lines
         playerCollider.enabled = false;
+
         // Disables player movement and the ability to re-click on an NPC
         playerCollider.gameObject.GetComponent<WASDMovement>().enabled = false;
         selectedNPC.enabled = false;
         //currentNPC = dialogueData;
         lines = dialogueOptions;
+
+        // change music
+        dukebox.OverworldToggle();
+
         gameObject.SetActive(true);
         index = 0;
         StartCoroutine(TypeLine());
@@ -92,6 +99,7 @@ public class Dialogue : MonoBehaviour
          else
          {
             // resets everything
+            dukebox.OverworldToggle();
             counter.SetActive(true);
             textComponent.text = string.Empty;
             gameObject.SetActive(false);
@@ -99,7 +107,7 @@ public class Dialogue : MonoBehaviour
             playerCollider.gameObject.GetComponent<WASDMovement>().enabled = true;
             playerCollider.transform.GetChild(0).GetComponent<Animator>().speed = 1;
             try { selectedNPC.enabled = true; } catch { }
-            selectedNPC.GetComponentInChildren<Animator>().SetBool("Speak", false);
+            try { selectedNPC.GetComponentInChildren<Animator>().SetBool("Speak", false); } catch { }
         }
      }
  }

@@ -1,10 +1,10 @@
-using JetBrains.Annotations;
+//using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Networking.PlayerConnection;
-using UnityEditor.SearchService;
+//using Unity.VisualScripting;
+//using UnityEditor.Networking.PlayerConnection;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +19,7 @@ public class LoadBadger : MonoBehaviour
     public TextMeshProUGUI counterCurrent;
     public TextMeshProUGUI counterTotal;
 
-    private int enemiesDefeated;
+    [SerializeField] private int enemiesDefeated;
     private int enemiesTotal;
 
     private CapsuleCollider playerCollider;
@@ -93,7 +93,12 @@ public class LoadBadger : MonoBehaviour
             // ends battle to fail screen
             StartCoroutine(GameEnd(false));
         }
-        else if(battleBadger.state == BattleState.WON)
+        if (battleBadger.state == BattleState.WON && enemiesDefeated >= enemiesTotal)
+        {
+            // ends battle to win screen
+            StartCoroutine(GameEnd(true));
+        }
+        else
         {
             // Restore Duffin (BattleBadger manages if enemy is alive)
             player.GetComponent<WASDMovement>().enabled = true;

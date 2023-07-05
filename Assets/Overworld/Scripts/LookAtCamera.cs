@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
+    [SerializeField] Vector3 offset;
     Transform cam;
     private void Start() 
     {
@@ -11,6 +12,6 @@ public class LookAtCamera : MonoBehaviour
     }
     void LateUpdate() 
     {
-        transform.LookAt(transform.position + cam.forward);
+        transform.LookAt(transform.position + cam.forward + offset);
     }
 }
