@@ -10,11 +10,12 @@ TagManager:
   - PickupConsume
   - PickupWeapon
   - SpawnRegion
+  - AnimCam
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Anims
   - Water
   - UI
   - 
