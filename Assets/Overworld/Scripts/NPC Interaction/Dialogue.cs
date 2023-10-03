@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
     private int index = 0;
     //private DialogueClass currentNPC;
     private CapsuleCollider playerCollider;
+    private Rigidbody playerRigid;
     private DetectClick selectedNPC;
 
     void Start()
@@ -46,6 +47,9 @@ public class Dialogue : MonoBehaviour
      {
         playerCollider = player;
         selectedNPC = NPC;
+        // ICE BLAST
+        playerRigid = player.GetComponent<Rigidbody>();
+        playerRigid.constraints = RigidbodyConstraints.FreezePosition;
 
         // Disables player collider, sets data from clicked NPC, then starts running through the selected array of lines
         playerCollider.enabled = false;
@@ -106,6 +110,9 @@ public class Dialogue : MonoBehaviour
             playerCollider.enabled = true;
             playerCollider.gameObject.GetComponent<WASDMovement>().enabled = true;
             playerCollider.transform.GetChild(0).GetComponent<Animator>().speed = 1;
+            // unfreeze him
+            playerRigid.constraints = RigidbodyConstraints.None;
+            playerRigid.constraints = RigidbodyConstraints.FreezePositionY;
             try { selectedNPC.enabled = true; } catch { }
             try { selectedNPC.GetComponentInChildren<Animator>().SetBool("Speak", false); } catch { }
         }

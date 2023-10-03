@@ -23,6 +23,7 @@ public class LoadBadger : MonoBehaviour
     private int enemiesTotal;
 
     private CapsuleCollider playerCollider;
+    private Rigidbody playerRigid;
 
     //REMOVE BEFORE BUILD
     public MeshRenderer border;
@@ -31,6 +32,7 @@ public class LoadBadger : MonoBehaviour
     {
         battleUI.SetActive(false);
         playerCollider = player.GetComponent<CapsuleCollider>();
+        playerRigid = player.GetComponent<Rigidbody>();
 
         //REMOVE BEFORE BUILD
         border.enabled = false;
@@ -49,6 +51,8 @@ public class LoadBadger : MonoBehaviour
         player.GetComponent<WASDMovement>().enabled = false;
         enemyEngaged.GetComponent<EnemyMovement>().enabled = false;
         playerCollider.enabled = false;
+        // ICE BLAST
+        playerRigid.constraints = RigidbodyConstraints.FreezePosition;
 
         // make them face each other
         player.transform.localScale = new Vector3(-1, 1, 1);
@@ -79,6 +83,9 @@ public class LoadBadger : MonoBehaviour
         // Return camera target to player
         playerCam.target = player.transform;
         playerCam.transform.rotation = new Quaternion(0, 0, 0, 0);
+        // unfreeze him
+        playerRigid.constraints = RigidbodyConstraints.None;
+        playerRigid.constraints = RigidbodyConstraints.FreezePositionY;
 
         tempTarget.gameObject.SetActive(false);
 

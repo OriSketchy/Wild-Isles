@@ -246,25 +246,6 @@ public class BatlleSystem : MonoBehaviour
         if (damType <= 3) 
         { 
             StartCoroutine(PlayerAttack(damType));
-            
-            ////move this over to a duffin script and reference this script to get the damtype 
-            //if(damType == 1)
-            //{
-            //    Debug.Log("Stab");
-            //    duffinAnim.SetBool("DuffinStab", true);
-            //}
-
-            //if (damType == 2)
-            //{
-            //    Debug.Log("Grab");
-            //    duffinAnim.SetBool("DuffinGrab", true);
-            //}
-
-            //if (damType == 3)
-            //{
-            //    Debug.Log("Thwab");
-            //    duffinAnim.SetBool("DuffinThwab", true);
-            //}
         }
         else if(damType > 3) 
         {
@@ -306,15 +287,6 @@ public class BatlleSystem : MonoBehaviour
     // MINI CUTSCENES
     IEnumerator WeaponPickup()
     {
-        //var damType = "DAMTYPE";
-
-        //if (enemyUnit.items[0].damageType.ToString() == "1")
-        //    damType = "Stab";
-        //else if (enemyUnit.items[0].damageType.ToString() == "2")
-        //    damType = "Grab";
-        //else if (enemyUnit.items[0].damageType.ToString() == "3")
-        //    damType = "Thwab";
-
         // HOLD DEATH ANIMATION
         dialogueText.text = $"Enemy is defe- What's this?";
         yield return new WaitForSeconds(2f);
@@ -335,8 +307,7 @@ public class BatlleSystem : MonoBehaviour
         // camera is mostly restored elsewhere. Unzoom here
         mainCamera.fieldOfView = 60;
 
-        StartCoroutine(theBadger.BattleExit());
-        //yield break;
+
     }
     IEnumerator ConsumePickup()
     {
@@ -364,6 +335,5 @@ public class BatlleSystem : MonoBehaviour
         mainCamera.fieldOfView = 60;
 
         StartCoroutine(theBadger.BattleExit());
-        //yield break;
     }
 }
